@@ -1,0 +1,39 @@
+- main:
+  - > include comments
+
+  - match: (^\s*$)
+    comment: blank lines at the start are ignored.
+
+  - begin: (.{1,50})(.{1,22})(.*)
+    begin-captures:
+      "1": fine
+      "2": iffy
+      "3": bad
+    > go to second-line
+    // TODO... do I need an end?
+
+- comments:
+  - match: (^#.*$)
+    scope: comment-line
+   // TODO: the rest of the guts
+
+- second-line:
+  - > include comments
+    comment: if comments are on the "second line" they are okay, it just means we still need a blank line before any body text
+
+  - match: (^(?!#)\s*\S+.*)
+    comment: if the second line has any non-space character on it it's bad...
+    scope: bad
+    > go to body
+
+  - match: ^$
+    scope: fine
+    > go to body
+
+- body:
+  - > include comments
+  
+  - match (.{1,72)(.*)
+    captures:
+      "1": fine
+      "2": bad
