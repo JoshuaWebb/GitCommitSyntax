@@ -1,39 +1,41 @@
-- main:
-  - > include comments
+%YAML 1.2
+---
+name: Git Commit Message
+file_extensions: [COMMIT_EDITMSG, MERGE_MSG]
+scope: text.git-commit-msg
 
-  - match: (^\s*$)
-    comment: blank lines at the start are ignored.
+contexts:
+  prototype:
+    - include: comments
 
-  - begin: (.{1,50})(.{1,22})(.*)
-    begin-captures:
-      "1": fine
-      "2": iffy
-      "3": bad
-    > go to second-line
-    // TODO... do I need an end?
+  main:
+    # blank lines at the start are ignored.
+    - match: (^\s*$)
+    - match: (.{1,50})(.{1,22})(.*)
+      captures:
+        "0": summary
+       #"1": is a cool guy who shots aliens and doesn't afraid of anything
+        "2": invalid.illegal.slightly-too-long
+        "3": invalid.illegal.too-long
+      push: second-line
 
-- comments:
-  - match: (^#.*$)
-    scope: comment-line
-   // TODO: the rest of the guts
+  second-line:
+    - match: (^(?!#)\s*\S+.*)
+      scope: invalid.illegal.should-be-blank
+      push: body
+    - match: ^\s*$
+      push: body
 
-- second-line:
-  - > include comments
-    comment: if comments are on the "second line" they are okay, it just means we still need a blank line before any body text
+  body:
+    - match (.{1,72)(.*)
+      captures:
+       #"1": regular text
+        "2": invalid.illegal.too-long
 
-  - match: (^(?!#)\s*\S+.*)
-    comment: if the second line has any non-space character on it it's bad...
-    scope: bad
-    > go to body
+  comments:
+    - match: (^#.*$)
+      scope: comment.line.number-sign
+     # TODO: the rest of the guts
 
-  - match: ^$
-    scope: fine
-    > go to body
+  # diff shenanigans
 
-- body:
-  - > include comments
-  
-  - match (.{1,72)(.*)
-    captures:
-      "1": fine
-      "2": bad
