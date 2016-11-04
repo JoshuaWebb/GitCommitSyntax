@@ -11,7 +11,7 @@ contexts:
   main:
     # blank lines at the start are ignored.
     - match: (^\s*$)
-    - match: (.{1,50})(.{1,22})(.*)
+    - match: (.{1,50})(.{0,22})(.*)
       captures:
         "0": summary
        #"1": is a cool guy who shots aliens and doesn't afraid of anything
@@ -22,20 +22,83 @@ contexts:
   second-line:
     - match: (^(?!#)\s*\S+.*)
       scope: invalid.illegal.should-be-blank
-      push: body
+      set: body
     - match: ^\s*$
-      push: body
+      set: body
 
   body:
-    - match (.{1,72)(.*)
+    - match: (.{1,72})(.*)
       captures:
        #"1": regular text
         "2": invalid.illegal.too-long
 
   comments:
+    # TODO: see if we can use meta_scope: comment.line.number-sign
+    - match: ^#\sOn branch (.*)
+      scope: comment.line.number-sign
+      captures:
+        "1": constant.branch-name
+    - match: ^#\sYour branch is (?:(ahead) of|(behind)) '(.*)' by (\d+) commit(?:s?(?:\.|, and can be fast-forwarded\.))
+      scope: comment.line.number-sign
+      captures:
+        "1": keyword.other
+        "2": keyword.other
+        "3": constant.branch-name.remote
+        "4": constant.numeric
+    - match: ^#\sYour branch is (up-to-date) with '(.*)'
+      scope: comment.line.number-sign
+      captures:
+        "1": keyword.other
+        "2": constant.branch-name.remote
+    - match: ^#\sYour branch and '(.*)' have (diverged)
+      scope: comment.line.number-sign
+      captures:
+        "1": constant.branch-name.remote
+        "2": keyword.other
+    - match: ^# and have (\d+) and (\d+) different commits each, respectively.
+      scope: comment.line.number-sign
+      captures:
+        "1": constant.numeric
+        "2": constant.numeric
+
+    - match: "^# (Changes to be committed:|Changes not staged for commit:)"
+      scope: comment.line.number-sign
+      captures:
+        "1": markup.heading
+
+    - match: "^# (Untracked files:)"
+      scope: comment.line.number-sign
+      captures:
+        "1": markup.heading
+      push:
+        - meta_include_prototype: false
+        - match: ^#\s+(\S+)$
+          scope: comment.line.number-sign
+          captures:
+            "1": markup.untracked
+        - match: ^#
+          scope: comment.line.number-sign
+          pop: true
+
+    - match: ^#\s(new file:\s+.*)
+      scope: comment.line.number-sign
+      captures:
+        "1": markup.inserted
+    - match: ^#\s(modified:\s+.*)
+      scope: comment.line.number-sign
+      captures:
+        "1": markup.changed
+    - match: ^#\s(deleted:\s+.*)
+      scope: comment.line.number-sign
+      captures:
+        "1": markup.deleted
+
+
+    # Plain ol' comment
     - match: (^#.*$)
       scope: comment.line.number-sign
-     # TODO: the rest of the guts
 
-  # diff shenanigans
+    - match: diff\ \-\-git
+      # doesn't use comment scope
+      set: "Packages/Diff/Diff.sublime-syntax"
 
