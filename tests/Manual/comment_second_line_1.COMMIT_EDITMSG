@@ -1,0 +1,8 @@
+This should be the first line.
+# This comment shouldn't count as a line.
+This should be the second line.
+This should be a body line.
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# ...
