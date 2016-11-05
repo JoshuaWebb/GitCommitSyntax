@@ -37,23 +37,23 @@ contexts:
     - match: ^#\sOn branch (.*)
       scope: comment.line.number-sign
       captures:
-        "1": constant.branch-name
+        "1": constant.other.branch-name
     - match: ^#\sYour branch is (?:(ahead) of|(behind)) '(.*)' by (\d+) commit(?:s?(?:\.|, and can be fast-forwarded\.))
       scope: comment.line.number-sign
       captures:
         "1": keyword.other
         "2": keyword.other
-        "3": constant.branch-name.remote
+        "3": constant.other.branch-name.remote
         "4": constant.numeric
     - match: ^#\sYour branch is (up-to-date) with '(.*)'
       scope: comment.line.number-sign
       captures:
         "1": keyword.other
-        "2": constant.branch-name.remote
+        "2": constant.other.branch-name.remote
     - match: ^#\sYour branch and '(.*)' have (diverged)
       scope: comment.line.number-sign
       captures:
-        "1": constant.branch-name.remote
+        "1": constant.other.branch-name.remote
         "2": keyword.other
     - match: ^# and have (\d+) and (\d+) different commits each, respectively.
       scope: comment.line.number-sign
@@ -61,10 +61,46 @@ contexts:
         "1": constant.numeric
         "2": constant.numeric
 
-    - match: "^# (Changes to be committed:|Changes not staged for commit:)"
+    # TODO: can I reduce this duplication??
+    - match: ^#\s(Changes to be committed:)
       scope: comment.line.number-sign
       captures:
         "1": markup.heading
+      push:
+        - meta_include_prototype: false
+        - match: ^#\s(new file:)\s+(.*)
+          scope: comment.line.number-sign
+          captures:
+            "1": markup.inserted
+            "2": markup.inserted
+        - match: ^#\s(modified:)\s+(.*)
+          scope: comment.line.number-sign
+          captures:
+            "1": markup.inserted
+            "2": markup.changed
+        - match: ^#\s(deleted:)\s+(.*)
+          scope: comment.line.number-sign
+          captures:
+            "1": markup.inserted
+            "2": markup.deleted
+        - match: ^#
+          scope: comment.line.number-sign
+          pop: true
+
+    - match: ^#\s(Changes not staged for commit:)
+      scope: comment.line.number-sign
+      captures:
+        "1": markup.heading
+      push:
+        - meta_include_prototype: false
+        - match: ^#\s(new file:|modified:|deleted:)\s+(.*)
+          scope: comment.line.number-sign
+          captures:
+            "1": markup.changed
+            "2": markup.changed
+        - match: ^#
+          scope: comment.line.number-sign
+          pop: true
 
     - match: "^# (Untracked files:)"
       scope: comment.line.number-sign
@@ -80,20 +116,6 @@ contexts:
           scope: comment.line.number-sign
           pop: true
 
-    - match: ^#\s(new file:\s+.*)
-      scope: comment.line.number-sign
-      captures:
-        "1": markup.inserted
-    - match: ^#\s(modified:\s+.*)
-      scope: comment.line.number-sign
-      captures:
-        "1": markup.changed
-    - match: ^#\s(deleted:\s+.*)
-      scope: comment.line.number-sign
-      captures:
-        "1": markup.deleted
-
-
     # Plain ol' comment
     - match: (^#.*$)
       scope: comment.line.number-sign
@@ -101,4 +123,3 @@ contexts:
     - match: diff\ \-\-git
       # doesn't use comment scope
       set: "Packages/Diff/Diff.sublime-syntax"
-
