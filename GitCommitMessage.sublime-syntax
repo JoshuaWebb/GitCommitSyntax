@@ -11,12 +11,11 @@ contexts:
   main:
     # blank lines at the start are ignored.
     - match: (^\s*$)
-    - match: (.{1,50})(.{0,22})(.*)
+    - match: (?:.{1,50})(.{0,22})(.*)
       captures:
         "0": summary
-       #"1": is a cool guy who shots aliens and doesn't afraid of anything
-        "2": invalid.illegal.slightly-too-long
-        "3": invalid.illegal.too-long
+        "1": invalid.illegal.slightly-too-long
+        "2": invalid.illegal.too-long
       push: second-line
 
   second-line:
@@ -27,34 +26,33 @@ contexts:
       set: body
 
   body:
-    - match: (.{1,72})(.*)
+    - match: (?:.{1,72})(.*)
       captures:
-       #"1": regular text
-        "2": invalid.illegal.too-long
+        "1": invalid.illegal.too-long
 
   comments:
     # TODO: see if we can use meta_scope: comment.line.number-sign
     - match: ^#\sOn branch (.*)
       scope: comment.line.number-sign
       captures:
-        "1": constant.other.branch-name
+        "1": string.unquoted.branch-name
     - match: ^#\sYour branch is (?:(ahead) of|(behind)) '(.*)' by (\d+) commit(?:s?(?:\.|, and can be fast-forwarded\.))
       scope: comment.line.number-sign
       captures:
-        "1": keyword.other
-        "2": keyword.other
-        "3": constant.other.branch-name.remote
+        "1": keyword.other.status
+        "2": keyword.other.status
+        "3": string.unquoted.branch-name.remote
         "4": constant.numeric
     - match: ^#\sYour branch is (up-to-date) with '(.*)'
       scope: comment.line.number-sign
       captures:
-        "1": keyword.other
-        "2": constant.other.branch-name.remote
-    - match: ^#\sYour branch and '(.*)' have (diverged)
+        "1": keyword.other.status
+        "2": string.unquoted.branch-name.remote
+    - match: ^#\sYour branch and '(.*)' have (diverged),
       scope: comment.line.number-sign
       captures:
-        "1": constant.other.branch-name.remote
-        "2": keyword.other
+        "1": string.unquoted.branch-name.remote
+        "2": keyword.other.status
     - match: ^# and have (\d+) and (\d+) different commits each, respectively.
       scope: comment.line.number-sign
       captures:
