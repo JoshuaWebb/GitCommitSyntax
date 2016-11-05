@@ -1,0 +1,45 @@
+' SYNTAX TEST "Packages/GitCommitSyntax/GitCommitMessage.sublime-syntax"
+
+The syntax test line ends up being included as the actual first line.
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch master
+'           ^^^^^^ string.unquoted.branch-name
+' ^^^^^^^^^^^^^^^^ comment.line.number-sign
+# Your branch is ahead of 'origin/master' by 1 commit.
+'                ^^^^^ keyword.other.status
+'                          ^^^^^^^^^^^^^ string.unquoted.branch-name.remote
+'                                            ^ constant.numeric
+' ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+#
+# Your branch is ahead of 'origin/master' by 2 commits.
+'                ^^^^^ keyword.other.status
+'                          ^^^^^^^^^^^^^ string.unquoted.branch-name.remote
+'                                            ^ constant.numeric
+' ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+#
+# Your branch is behind 'origin/master' by 1 commit, and can be fast-forwarded.
+'                ^^^^^^ keyword.other.status
+'                        ^^^^^^^^^^^^^ string.unquoted.branch-name.remote
+'                                          ^ constant.numeric
+' ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+#
+# Your branch is behind 'origin/master' by 2 commits, and can be fast-forwarded.
+'                ^^^^^^ keyword.other.status
+'                        ^^^^^^^^^^^^^ string.unquoted.branch-name.remote
+'                                          ^ constant.numeric
+' ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+#
+# Your branch is up-to-date with 'origin/master'
+'                ^^^^^^^^^^ keyword.other.status
+'                                 ^^^^^^^^^^^^^ string.unquoted.branch-name.remote
+' ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+#
+# Your branch and 'origin/master' have diverged,
+'                                      ^^^^^^^^ keyword.other.status
+'                  ^^^^^^^^^^^^^ string.unquoted.branch-name.remote
+' ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+# and have 1 and 2 different commits each, respectively.
+'          ^ constant.numeric
+'                ^ constant.numeric

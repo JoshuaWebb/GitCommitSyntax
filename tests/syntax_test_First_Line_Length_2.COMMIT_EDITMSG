@@ -1,0 +1,4 @@
+# SYNTAX TEST "Packages/GitCommitSyntax/GitCommitMessage.sublime-syntax"
+This test only works when comment lines aren't treated as the first line
+//                                                ^^^^^^^^^^^^^^^^^^^^^^ invalid.illegal.slightly-too-long
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-commit-msg summary

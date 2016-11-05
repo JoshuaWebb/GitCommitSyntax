@@ -1,0 +1,11 @@
+' SYNTAX TEST "Packages/GitCommitSyntax/GitCommitMessage.sublime-syntax"
+
+The syntax test line ends up being included as the actual first line.
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Author:    New Author Name <email@address.com>
+' ^^^^^^^ keyword.other.author
+'            ^^^^^^^^^^^^^^^ string.unquoted.name
+'                             ^^^^^^^^^^^^^^^^^ string.unquoted.email
+' ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign

@@ -1,0 +1,66 @@
+' SYNTAX TEST "Packages/GitCommitSyntax/GitCommitMessage.sublime-syntax"
+
+The syntax test line ends up being included as the actual first line.
+# Changes to be committed:
+' ^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign markup.heading
+# new file:   path/to/a
+' ^^^^^^^^^ markup.inserted
+'             ^^^^^^^^^ markup.inserted
+'^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+# new file:   path to b
+' ^^^^^^^^^ markup.inserted
+'             ^^^^^^^^^ markup.inserted
+'^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+# modified:   path/to/c
+' ^^^^^^^^^ markup.inserted
+'             ^^^^^^^^^ markup.changed
+'^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+# modified:   path to d
+' ^^^^^^^^^ markup.inserted
+'             ^^^^^^^^^ markup.changed
+'^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+# deleted:    path/to/e
+' ^^^^^^^^ markup.inserted
+'             ^^^^^^^^^ markup.deleted
+'^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+# deleted:    path to f
+' ^^^^^^^^ markup.inserted
+'             ^^^^^^^^^ markup.deleted
+'^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+#
+# Changes not staged for commit:
+' ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign markup.heading
+# new file:   path/to/g
+' ^^^^^^^^^ markup.changed
+'             ^^^^^^^^^ markup.changed
+'^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+# new file:   path to h
+' ^^^^^^^^^ markup.changed
+'             ^^^^^^^^^ markup.changed
+'^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+# modified:   path/to/i
+' ^^^^^^^^^ markup.changed
+'             ^^^^^^^^^ markup.changed
+'^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+# modified:   path to j
+' ^^^^^^^^^ markup.changed
+'             ^^^^^^^^^ markup.changed
+'^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+# deleted:    path/to/k
+' ^^^^^^^^ markup.changed
+'             ^^^^^^^^^ markup.changed
+'^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+# deleted:    path to l
+' ^^^^^^^^ markup.changed
+'             ^^^^^^^^^ markup.changed
+'^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+#
+# Untracked files:
+' ^^^^^^^^^^^^^^^^ comment.line.number-sign markup.heading
+# path/to/m
+' ^^^^^^^^^ markup.untracked
+'^^^^^^^^^^ comment.line.number-sign
+# path to n
+' ^^^^^^^^^ markup.untracked
+'^^^^^^^^^^ comment.line.number-sign
+#

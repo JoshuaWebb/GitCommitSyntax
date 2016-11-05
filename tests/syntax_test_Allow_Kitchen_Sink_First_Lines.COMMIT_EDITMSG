@@ -1,0 +1,33 @@
+# SYNTAX TEST "Packages/GitCommitSyntax/GitCommitMessage.sublime-syntax"
+
+# interspersed comments
+
+       
+# and blanks
+
+
+# even the "main block" before the summary, unfortunately due to the way
+# these syntax tests work, I can't test all of the lines in this comment
+# block, because of the mixed contexts.
+#
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+#           ^^^^^^ string.unquoted.branch-name
+# Changes to be committed:
+#	new file:   x
+#	modified:   y
+#	deleted:    z
+#
+# Untracked files:
+#   a
+#   ^ markup.untracked
+#
+
+Summary line
+#<- summary
+#^^^^^^^^^^^ summary
+
+#<- text.git-commit-msg
+ '#' lines are both test syntax and comments in the language
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-commit-msg.body

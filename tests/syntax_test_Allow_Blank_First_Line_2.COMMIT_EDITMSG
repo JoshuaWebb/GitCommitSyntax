@@ -1,0 +1,10 @@
+# SYNTAX TEST "Packages/GitCommitSyntax/GitCommitMessage.sublime-syntax"
+
+Summary line
+#<- summary
+#^^^^^^^^^^^ summary
+This line should be blank
+#<- invalid.illegal.should-be-blank
+#^^^^^^^^^^^^^^^^^^^^^^^^ invalid.illegal.should-be-blank
+ '#' lines are both test syntax and comments in the language
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-commit-msg.body

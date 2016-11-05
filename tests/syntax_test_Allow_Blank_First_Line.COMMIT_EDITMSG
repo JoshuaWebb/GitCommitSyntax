@@ -1,0 +1,9 @@
+# SYNTAX TEST "Packages/GitCommitSyntax/GitCommitMessage.sublime-syntax"
+
+Summary line
+#<- summary
+#^^^^^^^^^^^ summary
+
+#^ text.git-commit-msg
+ '#' lines are both test syntax and comments in the language
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-commit-msg.body
