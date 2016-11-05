@@ -27,6 +27,7 @@ contexts:
 
   body:
     - match: (?:.{1,72})(.*)
+      scope: text.git-commit-msg.body
       captures:
         "1": invalid.illegal.too-long
 
@@ -79,22 +80,22 @@ contexts:
         "1": markup.heading
       push:
         - meta_include_prototype: false
-        - match: ^#\s(new file:)\s+(.*)
+        - match: ^#\s+(new file:)\s+(.*)
           scope: comment.line.number-sign
           captures:
             "1": markup.inserted
             "2": markup.inserted
-        - match: ^#\s(modified:)\s+(.*)
+        - match: ^#\s+(modified:)\s+(.*)
           scope: comment.line.number-sign
           captures:
             "1": markup.inserted
             "2": markup.changed
-        - match: ^#\s(deleted:)\s+(.*)
+        - match: ^#\s+(deleted:)\s+(.*)
           scope: comment.line.number-sign
           captures:
             "1": markup.inserted
             "2": markup.deleted
-        - match: ^#
+        - match: ^#\s*$
           scope: comment.line.number-sign
           pop: true
 
@@ -104,12 +105,12 @@ contexts:
         "1": markup.heading
       push:
         - meta_include_prototype: false
-        - match: ^#\s(new file:|modified:|deleted:)\s+(.*)
+        - match: ^#\s+(new file:|modified:|deleted:)\s+(.*)
           scope: comment.line.number-sign
           captures:
             "1": markup.changed
             "2": markup.changed
-        - match: ^#
+        - match: ^#\s*$
           scope: comment.line.number-sign
           pop: true
 
@@ -123,7 +124,7 @@ contexts:
           scope: comment.line.number-sign
           captures:
             "1": markup.untracked
-        - match: ^#
+        - match: ^#\s*$
           scope: comment.line.number-sign
           pop: true
 
