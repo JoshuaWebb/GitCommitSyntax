@@ -59,11 +59,11 @@ contexts:
         "1": constant.numeric
         "2": constant.numeric
 
-    - match: ^#\s(Author:)\s+(.*)\s(<[^>]+>)
+    - match: ^#\s(Author:)\s+(.*)\s<([^>]+)>
       scope: comment.line.number-sign
       captures:
         "1": keyword.other.author
-        "2": string.unquoted.author
+        "2": string.unquoted.name
         "3": string.unquoted.email
 
     - match: ^#\s(Date:)\s+(.*)
