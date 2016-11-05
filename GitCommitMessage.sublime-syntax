@@ -119,7 +119,7 @@ contexts:
         "1": markup.heading
       push:
         - meta_include_prototype: false
-        - match: ^#\s+(\S+)$
+        - match: ^#\s+(\S.*)$
           scope: comment.line.number-sign
           captures:
             "1": markup.untracked
