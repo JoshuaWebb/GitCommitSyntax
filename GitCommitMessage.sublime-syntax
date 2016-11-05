@@ -40,20 +40,20 @@ contexts:
     - match: ^#\sYour branch is (?:(ahead) of|(behind)) '(.*)' by (\d+) commit(?:s?(?:\.|, and can be fast-forwarded\.))
       scope: comment.line.number-sign
       captures:
-        "1": keyword.other.status
-        "2": keyword.other.status
+        "1": keyword.other.status.ahead
+        "2": keyword.other.status.behind
         "3": string.unquoted.branch-name.remote
         "4": constant.numeric
     - match: ^#\sYour branch is (up-to-date) with '(.*)'
       scope: comment.line.number-sign
       captures:
-        "1": keyword.other.status
+        "1": keyword.other.status.up-to-date
         "2": string.unquoted.branch-name.remote
     - match: ^#\sYour branch and '(.*)' have (diverged),
       scope: comment.line.number-sign
       captures:
         "1": string.unquoted.branch-name.remote
-        "2": keyword.other.status
+        "2": keyword.other.status.diverged
     - match: ^# and have (\d+) and (\d+) different commits each, respectively.
       scope: comment.line.number-sign
       captures:
