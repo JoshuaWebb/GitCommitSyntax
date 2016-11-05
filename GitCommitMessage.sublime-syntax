@@ -61,6 +61,19 @@ contexts:
         "1": constant.numeric
         "2": constant.numeric
 
+    - match: ^#\s(Author:)\s+(.*)\s(<[^>]+>)
+      scope: comment.line.number-sign
+      captures:
+        "1": keyword.other.author
+        "2": string.unquoted.author
+        "3": string.unquoted.email
+
+    - match: ^#\s(Date:)\s+(.*)
+      scope: comment.line.number-sign
+      captures:
+        "1": keyword.other.date
+        "2": string.unquoted.date
+
     # TODO: can I reduce this duplication??
     - match: ^#\s(Changes to be committed:)
       scope: comment.line.number-sign
