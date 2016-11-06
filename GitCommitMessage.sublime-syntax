@@ -3,6 +3,7 @@
 name: Git Commit Message
 file_extensions: [COMMIT_EDITMSG, MERGE_MSG]
 scope: text.git-commit-msg
+uuid: BD99186C-6F05-4A89-9BBC-B6AFB205B7BC
 
 contexts:
   prototype:
@@ -128,10 +129,17 @@ contexts:
           scope: comment.line.number-sign
           pop: true
 
+    # diff cut line
+    - match: ^#\s+------------------------ >8 ------------------------
+      scope: comment.line.number-sign meta.diff.marker
+      push:
+        # explanation comment lines
+        - match: (^#.*$)
+          scope: comment.line.number-sign
+        - match: ^(?!#)
+          # doesn't use comment scope
+          set: "Packages/Diff/Diff.sublime-syntax"
+
     # Plain ol' comment
     - match: (^#.*$)
       scope: comment.line.number-sign
-
-    - match: diff\ \-\-git
-      # doesn't use comment scope
-      set: "Packages/Diff/Diff.sublime-syntax"
