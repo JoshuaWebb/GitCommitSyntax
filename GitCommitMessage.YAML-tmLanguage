@@ -1,124 +1,144 @@
-%YAML 1.2
+# [PackageDev] target_format: plist, ext: tmLanguage
 ---
 name: Git Commit Message (tmLanguage)
 fileTypes: [COMMIT_EDITMSG, MERGE_MSG]
-nameName: text.git-commit-msg
+scopeName: text.git-commit-msg
+uuid: 69AB7563-44F7-446C-B3A9-7CFEC8D50B1C
 
 patterns:
-  - include: comments
-  - include: main
+  - include: '#comments'
+  - include: '#main'
 
 repository:
   main:
+    patterns:
     # blank lines at the start are ignored.
     - match: (^\s*$)
     - begin: (?:.{1,50})(.{0,22})(.*)
       beginCaptures:
-        "0": {name: summary}
-        "1": {name: invalid.illegal.slightly-too-long}
-        "2": {name: invalid.illegal.too-long}
-      end: (?=Unmatchable)12345678901
+        "0": { name: summary }
+        "1": { name: invalid.illegal.slightly-too-long }
+        "2": { name: invalid.illegal.too-long }
+      end: (?=ThisNeverEnds)1234567890123
       patterns:
-      - begin: ^\s*$|(^(?!#)\s*\S+.*)
-        beginCaptures:
-          "1": {name: invalid.illegal.should-be-blank}
-        end: (?=Unmatchable)23456789012
-        patterns:
-        - match: (?:.{1,72})(.*)
-          name: text.git-commit-msg.body
-          captures:
-            "1": {name: invalid.illegal.too-long}
+        - include: '#comments'
+        - include: '#second-line'
+
+  second-line:
+    begin: ^(\s*$|(^(?!#)\s*\S+.*))
+    beginCaptures:
+      "2": { name: invalid.illegal.should-be-blank }
+    end: (?=ThisNeverEnds)1234567890123
+    patterns:
+      - include: '#comments'
+      - include: '#body'
+
+  body:
+    patterns:
+    - include: '#comments'
+    - match: ^(?:.{1,72})(.*)
+      name: text.git-commit-msg.body
+      captures:
+        "1": { name: invalid.illegal.too-long }
 
   comments:
+    patterns:
     - match: ^#\sOn branch (.*)
       name: comment.line.number-sign
       captures:
-        "1": {name: string.unquoted.branch-name}
+        "1": { name: string.unquoted.branch-name }
     - match: ^#\sYour branch is (?:(ahead) of|(behind)) '(.*)' by (\d+) commit(?:s?(?:\.|, and can be fast-forwarded\.))
       name: comment.line.number-sign
       captures:
-        "1": {name: keyword.other.status.ahead}
-        "2": {name: keyword.other.status.behind}
-        "3": {name: string.unquoted.branch-name.remote}
-        "4": {name: constant.numeric}
+        "1": { name: keyword.other.status.ahead }
+        "2": { name: keyword.other.status.behind }
+        "3": { name: string.unquoted.branch-name.remote }
+        "4": { name: constant.numeric }
     - match: ^#\sYour branch is (up-to-date) with '(.*)'
       name: comment.line.number-sign
       captures:
-        "1": {name: keyword.other.status.up-to-date}
-        "2": {name: string.unquoted.branch-name.remote}
+        "1": { name: keyword.other.status.up-to-date }
+        "2": { name: string.unquoted.branch-name.remote }
     - match: ^#\sYour branch and '(.*)' have (diverged),
       name: comment.line.number-sign
       captures:
-        "1": {name: string.unquoted.branch-name.remote}
-        "2": {name: keyword.other.status.diverged}
-    - match: ^# and have (\d+) and (\d+) different commits each, respectively.
+        "1": { name: string.unquoted.branch-name.remote }
+        "2": { name: keyword.other.status.diverged }
+    - match: '^# and have (\d+) and (\d+) different commits each, respectively.'
       name: comment.line.number-sign
       captures:
-        "1": {name: constant.numeric}
-        "2": {name: constant.numeric}
+        "1": { name: constant.numeric }
+        "2": { name: constant.numeric }
 
     - match: ^#\s(Author:)\s+(.*)\s<([^>]+)>
       name: comment.line.number-sign
       captures:
-        "1": {name: keyword.other.author}
-        "2": {name: string.unquoted.name}
-        "3": {name: string.unquoted.email}
+        "1": { name: keyword.other.author }
+        "2": { name: string.unquoted.name }
+        "3": { name: string.unquoted.email }
 
     - match: ^#\s(Date:)\s+(.*)
       name: comment.line.number-sign
       captures:
-        "1": {name: keyword.other.date}
-        "2": {name: string.unquoted.date}
+        "1": { name: keyword.other.date }
+        "2": { name: string.unquoted.date }
 
     - begin: ^#\s(Changes to be committed:)
       name: comment.line.number-sign
       beginCaptures:
-        "1": {name: markup.heading}
+        "1": { name: markup.heading }
       end: ^#\s*$
       patterns:
         - match: ^#\s+(new file:)\s+(.*)
-          name: comment.line.number-sign
           captures:
-            "1": {name: markup.inserted}
-            "2": {name: markup.inserted}
+            "1": { name: markup.inserted }
+            "2": { name: markup.inserted }
         - match: ^#\s+(modified:)\s+(.*)
-          name: comment.line.number-sign
           captures:
-            "1": {name: markup.inserted}
-            "2": {name: markup.changed}
+            "1": { name: markup.inserted }
+            "2": { name: markup.changed }
         - match: ^#\s+(deleted:)\s+(.*)
-          name: comment.line.number-sign
           captures:
-            "1": {name: markup.inserted}
-            "2": {name: markup.deleted}
+            "1": { name: markup.inserted }
+            "2": { name: markup.deleted }
 
     - begin: ^#\s(Changes not staged for commit:)
       name: comment.line.number-sign
       beginCaptures:
-        "1": {name: markup.heading}
+        "1": { name: markup.heading }
       end: ^#\s*$
       patterns:
         - match: ^#\s+(new file:|modified:|deleted:)\s+(.*)
-          name: comment.line.number-sign
           captures:
-            "1": {name: markup.changed}
-            "2": {name: markup.changed}
+            "1": { name: markup.changed }
+            "2": { name: markup.changed }
 
     - begin: ^# (Untracked files:)
       name: comment.line.number-sign
       beginCaptures:
-        "1": {name: markup.heading}
+        "1": { name: markup.heading }
       end: ^#\s*$
       patterns:
         - match: ^#\s+(\S.*)$
-          name: comment.line.number-sign
           captures:
-            "1": {name: markup.untracked}
+            "1": { name: markup.untracked }
+
+    # diff cut line
+    - begin: ^#\s+------------------------ >8 ------------------------
+      end: (?=ThisNeverEnds)1234567890123
+      beginCaptures:
+        "0": { name: comment.line.number-sign meta.diff.marker }
+      patterns:
+      - match: ^#.*
+        name: comment.line.number-sign
+      - begin: ^(?!#)
+        end: (?=ThisNeverEnds)1234567890123
+        beginCaptures:
+          "0": { name: comment.line.number-sign }
+        contentName: source.diff
+        patterns:
+          - include: "source.diff"
 
     # Plain ol' comment
     - match: (^#.*$)
       name: comment.line.number-sign
-
-    - begin: diff\ \-\-git
-      # doesn't use comment name
-      include: "Packages/Diff/Diff.sublime-syntax"
