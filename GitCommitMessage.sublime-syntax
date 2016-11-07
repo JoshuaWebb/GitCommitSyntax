@@ -17,7 +17,7 @@ contexts:
         "0": string.unquoted text.git-commit-msg.summary
         "1": invalid.illegal.slightly-too-long
         "2": invalid.illegal.too-long
-      push: second-line
+      set: second-line
 
   second-line:
     - match: (^(?!#)\s*\S+.*)
