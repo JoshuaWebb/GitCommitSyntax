@@ -286,6 +286,17 @@
 				<string>#89DDFF</string>
 			</dict>
 		</dict>
+		<dict>
+			<key>name</key>
+			<string>Status</string>
+			<key>scope</key>
+			<string>text.git-commit-msg.summary</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#89DDFF</string>
+			</dict>
+		</dict>
 	</array>
 </dict>
 </plist>
