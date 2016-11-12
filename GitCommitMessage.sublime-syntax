@@ -104,6 +104,31 @@ contexts:
           scope: comment.line.number-sign
           pop: true
 
+    - match: "^# (Conflicts:)"
+      scope: comment.line.number-sign
+      captures:
+        "1": markup.heading
+      push:
+        - meta_include_prototype: false
+        - match: ^#\s+(\S.*)$
+          scope: comment.line.number-sign
+          captures:
+            "1": markup.list.unnumbered.resolved-conflict
+        - match: ^#\s*$
+          scope: comment.line.number-sign
+          pop: true
+    - match: ^# If this is not correct, please remove the file
+      scope: comment.line.number-sign
+      push:
+        - meta_include_prototype: false
+        - match: ^#\s+and try again\.$
+          scope: comment.line.number-sign
+          pop: true
+        - match: ^#\s+(\S.*)$
+          scope: comment.line.number-sign
+          captures:
+            "1": string.unquoted.merge-head
+
     # diff cut line
     - match: ^#\s+------------------------ >8 ------------------------
       scope: comment.line.number-sign meta.diff.marker

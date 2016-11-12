@@ -1,6 +1,17 @@
 The subject/summary line has multiple thresholds. [this one] which is BM and [this one] which is extreme BM
  ==== This line should be blank, so it is yelling at you === 
 This is a body line which is too long. The end of it yells at you encouraging you to wrap it yourself.
+
+# Conflicts:
+#	path/to/c
+#	path to d
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
 # Please enter the commit message for your changes. Lines starting
 # with '#' will be ignored, and an empty message aborts the commit.
 #

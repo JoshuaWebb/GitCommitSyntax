@@ -317,6 +317,28 @@
 				<string>#89DDFF</string>
 			</dict>
 		</dict>
+		<dict>
+			<key>name</key>
+			<string>Resolved Confilct</string>
+			<key>scope</key>
+			<string>markup.list.unnumbered.resolved-conflict</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#C792EA</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Merge Head File</string>
+			<key>scope</key>
+			<string>string.unquoted.merge-head</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#77a2b6</string>
+			</dict>
+		</dict>
 	</array>
 	<key>uuid</key>
 	<string>A683AC57-2830-4F54-A918-20F369CB567E</string>
