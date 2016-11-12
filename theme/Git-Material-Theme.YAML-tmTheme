@@ -1,0 +1,117 @@
+author: Joshua Webb
+colorSpaceName: sRGB
+name: Git-Material-Theme
+settings:
+- settings:
+    activeGuide: '#80CBC470'
+    background: '#263238'
+    caret: '#FFCC00'
+    findHighlight: '#F8E71C'
+    foreground: '#eeffff'
+    guide: '#37474F80'
+    gutterForeground: '#37474F'
+    invisibles: '#65737e'
+    lineHighlight: '#00000050'
+    popupCss: ' html { background-color: #263238; color: #eeffff; padding: 16px; }
+      a { color: #B2CCD6; line-height: 16px; } .error, .deleted { color: #FF5370;
+      } .success, .inserted { color: #C3E88D; } .warning, .modified { color: #FFCB6B;
+      } .type { color: #89DDFF; font-style: italic; } .param { color: #F78C6C; } .current
+      { text-decoration: underline; } '
+    selection: '#80CBC420'
+    selectionBorder: '#80CBC420'
+    shadow: '#00000010'
+    stackGuide: '#37474Fff'
+- name: Comments
+  scope: comment, punctuation.definition.comment
+  settings:
+    fontStyle: italic
+    foreground: '#546E7A'
+- name: Invalid
+  scope: invalid, invalid.illegal, invalid.broken
+  settings:
+    background: '#FF5370'
+    foreground: '#ffffff'
+- name: Keyword
+  scope: keyword
+  settings:
+    foreground: '#C792EA'
+- name: Other Variable, String Link
+  scope: support.other.variable, string.other.link
+  settings:
+    foreground: '#f07178'
+- name: Number
+  scope: constant.numeric
+  settings:
+    foreground: '#F78C6C'
+- name: String
+  scope: string
+  settings:
+    fontStyle: normal
+    foreground: '#C3E88D'
+- name: Branch Name
+  scope: string.unquoted.branch-name
+  settings:
+    foreground: '#C3E88D'
+- name: Branch Name (remote)
+  scope: string.unquoted.branch-name.remote
+  settings:
+    foreground: '#82AAFF'
+- name: Inserted
+  scope: markup.inserted
+  settings:
+    foreground: '#C3E88D'
+- name: Changed
+  scope: markup.changed
+  settings:
+    foreground: '#f7b73b'
+- name: Deleted
+  scope: markup.deleted
+  settings:
+    foreground: '#FF5370'
+- name: Untracked File
+  scope: markup.untracked
+  settings:
+    foreground: '#FF5370'
+- name: Commit Message Heading
+  scope: text.git-commit-msg markup.heading
+  settings:
+    fontStyle: normal
+    foreground: '#92d3c4'
+- name: Status
+  scope: keyword.other.status
+  settings:
+    foreground: '#6be5be'
+- name: Status
+  scope: keyword.other.status.behind
+  settings:
+    foreground: '#e56b9f'
+- name: Status
+  scope: keyword.other.status.up-to-date
+  settings:
+    foreground: '#96e56b'
+- name: Status
+  scope: keyword.other.status.diverged
+  settings:
+    foreground: '#C792EA'
+- name: (Author) Name
+  scope: string.unquoted.name
+  settings:
+    foreground: '#f4909a'
+- name: (Author) Email
+  scope: string.unquoted.email
+  settings:
+    foreground: '#f4bf90'
+- name: Slightly Too Long
+  scope: invalid.illegal.slightly-too-long
+  settings:
+    background: '#C792EA'
+    foreground: '#ffffff'
+- name: Operator, Misc
+  scope: keyword.operator, constant.other.color, punctuation
+  settings:
+    foreground: '#89DDFF'
+- name: Status
+  scope: text.git-commit-msg.summary
+  settings:
+    foreground: '#89DDFF'
+uuid: A683AC57-2830-4F54-A918-20F369CB567E

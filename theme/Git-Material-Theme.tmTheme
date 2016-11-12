@@ -8,8 +8,6 @@
 	<string>sRGB</string>
 	<key>name</key>
 	<string>Git-Material-Theme</string>
-	<key>uuid</key>
-	<string>A683AC57-2830-4F54-A918-20F369CB567E</string>
 	<key>settings</key>
 	<array>
 		<dict>
@@ -34,7 +32,7 @@
 				<key>lineHighlight</key>
 				<string>#00000050</string>
 				<key>popupCss</key>
-				<string><![CDATA[ html { background-color: #263238; color: #eeffff; padding: 16px; } a { color: #B2CCD6; line-height: 16px; } .error, .deleted { color: #FF5370; } .success, .inserted { color: #C3E88D; } .warning, .modified { color: #FFCB6B; } .type { color: #89DDFF; font-style: italic; } .param { color: #F78C6C; } .current { text-decoration: underline; } ]]></string>
+				<string> html { background-color: #263238; color: #eeffff; padding: 16px; } a { color: #B2CCD6; line-height: 16px; } .error, .deleted { color: #FF5370; } .success, .inserted { color: #C3E88D; } .warning, .modified { color: #FFCB6B; } .type { color: #89DDFF; font-style: italic; } .param { color: #F78C6C; } .current { text-decoration: underline; } </string>
 				<key>selection</key>
 				<string>#80CBC420</string>
 				<key>selectionBorder</key>
@@ -130,7 +128,7 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Branch Name</string>
+			<string>Branch Name (remote)</string>
 			<key>scope</key>
 			<string>string.unquoted.branch-name.remote</string>
 			<key>settings</key>
@@ -298,5 +296,7 @@
 			</dict>
 		</dict>
 	</array>
+	<key>uuid</key>
+	<string>A683AC57-2830-4F54-A918-20F369CB567E</string>
 </dict>
 </plist>
