@@ -4,66 +4,66 @@ The syntax test line ends up being included as the actual first line.
 # Changes to be committed:
 ' ^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign markup.heading
 # new file:   path/to/a
-' ^^^^^^^^^ markup.inserted
+' ^^^^^^^^^ keyword.other.new-file
 '             ^^^^^^^^^ markup.inserted
-'^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+'^^^^^^^^^^^^^^^^^^^^^^ text.git-commit-msg.committed comment.line.number-sign
 # new file:   path to b
-' ^^^^^^^^^ markup.inserted
+' ^^^^^^^^^ keyword.other.new-file
 '             ^^^^^^^^^ markup.inserted
-'^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+'^^^^^^^^^^^^^^^^^^^^^^ text.git-commit-msg.committed comment.line.number-sign
 # modified:   path/to/c
-' ^^^^^^^^^ markup.inserted
+' ^^^^^^^^^ keyword.other.modified
 '             ^^^^^^^^^ markup.changed
-'^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+'^^^^^^^^^^^^^^^^^^^^^^ text.git-commit-msg.committed comment.line.number-sign
 # modified:   path to d
-' ^^^^^^^^^ markup.inserted
+' ^^^^^^^^^ keyword.other.modified
 '             ^^^^^^^^^ markup.changed
-'^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+'^^^^^^^^^^^^^^^^^^^^^^ text.git-commit-msg.committed comment.line.number-sign
 # renamed:    path/to/o -> path/to/p
-' ^^^^^^^^ markup.inserted
+' ^^^^^^^^ keyword.other.renamed
 '             ^^^^^^^^^ markup.changed
 '                          ^^^^^^^^^ markup.inserted
-'^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+'^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-commit-msg.committed comment.line.number-sign
 # renamed:    path to q -> path to r
-' ^^^^^^^^ markup.inserted
+' ^^^^^^^^ keyword.other.renamed
 '             ^^^^^^^^^ markup.changed
 '                          ^^^^^^^^^ markup.inserted
-'^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+'^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-commit-msg.committed comment.line.number-sign
 # deleted:    path/to/e
-' ^^^^^^^^ markup.inserted
+' ^^^^^^^^ keyword.other.deleted
 '             ^^^^^^^^^ markup.deleted
-'^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+'^^^^^^^^^^^^^^^^^^^^^^ text.git-commit-msg.committed comment.line.number-sign
 # deleted:    path to f
-' ^^^^^^^^ markup.inserted
+' ^^^^^^^^ keyword.other.deleted
 '             ^^^^^^^^^ markup.deleted
-'^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+'^^^^^^^^^^^^^^^^^^^^^^ text.git-commit-msg.committed comment.line.number-sign
 #
 # Changes not staged for commit:
 ' ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign markup.heading
 # new file:   path/to/g
-' ^^^^^^^^^ markup.changed
-'             ^^^^^^^^^ markup.changed
-'^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+' ^^^^^^^^^  keyword.other.new-file
+'             ^^^^^^^^^ markup.inserted
+'^^^^^^^^^^^^^^^^^^^^^^ text.git-commit-msg.unstaged comment.line.number-sign
 # new file:   path to h
-' ^^^^^^^^^ markup.changed
-'             ^^^^^^^^^ markup.changed
-'^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+' ^^^^^^^^^ keyword.other.new-file
+'             ^^^^^^^^^ markup.inserted
+'^^^^^^^^^^^^^^^^^^^^^^ text.git-commit-msg.unstaged comment.line.number-sign
 # modified:   path/to/i
-' ^^^^^^^^^ markup.changed
+' ^^^^^^^^^ keyword.other.modified
 '             ^^^^^^^^^ markup.changed
-'^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+'^^^^^^^^^^^^^^^^^^^^^^ text.git-commit-msg.unstaged comment.line.number-sign
 # modified:   path to j
-' ^^^^^^^^^ markup.changed
+' ^^^^^^^^^ keyword.other.modified
 '             ^^^^^^^^^ markup.changed
-'^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+'^^^^^^^^^^^^^^^^^^^^^^ text.git-commit-msg.unstaged comment.line.number-sign
 # deleted:    path/to/k
-' ^^^^^^^^ markup.changed
-'             ^^^^^^^^^ markup.changed
-'^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+' ^^^^^^^^ keyword.other.deleted
+'             ^^^^^^^^^ markup.deleted
+'^^^^^^^^^^^^^^^^^^^^^^ text.git-commit-msg.unstaged comment.line.number-sign
 # deleted:    path to l
-' ^^^^^^^^ markup.changed
-'             ^^^^^^^^^ markup.changed
-'^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+' ^^^^^^^^ keyword.other.deleted
+'             ^^^^^^^^^ markup.deleted
+'^^^^^^^^^^^^^^^^^^^^^^ text.git-commit-msg.unstaged comment.line.number-sign
 #
 # Untracked files:
 ' ^^^^^^^^^^^^^^^^ comment.line.number-sign markup.heading

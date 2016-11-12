@@ -45,6 +45,30 @@
 		</dict>
 		<dict>
 			<key>name</key>
+			<string>Summary</string>
+			<key>scope</key>
+			<string>text.git-commit-msg.summary</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#89DDFF</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Slightly Too Long</string>
+			<key>scope</key>
+			<string>invalid.illegal.slightly-too-long</string>
+			<key>settings</key>
+			<dict>
+				<key>background</key>
+				<string>#C792EA</string>
+				<key>foreground</key>
+				<string>#ffffff</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
 			<string>Comments</string>
 			<key>scope</key>
 			<string>comment, punctuation.definition.comment</string>
@@ -135,6 +159,28 @@
 			<dict>
 				<key>foreground</key>
 				<string>#82AAFF</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Committed</string>
+			<key>scope</key>
+			<string> text.git-commit-msg.committed keyword.other.new-file, text.git-commit-msg.committed keyword.other.modified, text.git-commit-msg.committed keyword.other.renamed, text.git-commit-msg.committed keyword.other.deleted </string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#C3E88D</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Unstaged</string>
+			<key>scope</key>
+			<string> text.git-commit-msg.unstaged keyword.other.new-file, text.git-commit-msg.unstaged keyword.other.modified, text.git-commit-msg.unstaged keyword.other.deleted, text.git-commit-msg.unstaged markup.inserted, text.git-commit-msg.unstaged markup.changed, text.git-commit-msg.unstaged markup.deleted </string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#f7b73b</string>
 			</dict>
 		</dict>
 		<dict>
@@ -262,33 +308,9 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Slightly Too Long</string>
-			<key>scope</key>
-			<string>invalid.illegal.slightly-too-long</string>
-			<key>settings</key>
-			<dict>
-				<key>background</key>
-				<string>#C792EA</string>
-				<key>foreground</key>
-				<string>#ffffff</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
 			<string>Operator, Misc</string>
 			<key>scope</key>
 			<string>keyword.operator, constant.other.color, punctuation</string>
-			<key>settings</key>
-			<dict>
-				<key>foreground</key>
-				<string>#89DDFF</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Status</string>
-			<key>scope</key>
-			<string>text.git-commit-msg.summary</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>

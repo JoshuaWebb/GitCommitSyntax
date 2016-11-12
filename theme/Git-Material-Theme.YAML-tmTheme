@@ -21,20 +21,35 @@ settings:
     selectionBorder: '#80CBC420'
     shadow: '#00000010'
     stackGuide: '#37474Fff'
+
+- name: Summary
+  scope: text.git-commit-msg.summary
+  settings:
+    foreground: '#89DDFF'
+
+- name: Slightly Too Long
+  scope: invalid.illegal.slightly-too-long
+  settings:
+    background: '#C792EA'
+    foreground: '#ffffff'
+
 - name: Comments
   scope: comment, punctuation.definition.comment
   settings:
     fontStyle: italic
     foreground: '#546E7A'
+
 - name: Invalid
   scope: invalid, invalid.illegal, invalid.broken
   settings:
     background: '#FF5370'
     foreground: '#ffffff'
+
 - name: Keyword
   scope: keyword
   settings:
     foreground: '#C792EA'
+
 - name: Other Variable, String Link
   scope: support.other.variable, string.other.link
   settings:
@@ -48,6 +63,7 @@ settings:
   settings:
     fontStyle: normal
     foreground: '#C3E88D'
+
 - name: Branch Name
   scope: string.unquoted.branch-name
   settings:
@@ -56,6 +72,29 @@ settings:
   scope: string.unquoted.branch-name.remote
   settings:
     foreground: '#82AAFF'
+
+- name: Committed
+  scope: '
+    text.git-commit-msg.committed keyword.other.new-file,
+    text.git-commit-msg.committed keyword.other.modified,
+    text.git-commit-msg.committed keyword.other.renamed,
+    text.git-commit-msg.committed keyword.other.deleted
+  '
+  settings:
+    foreground: '#C3E88D'
+
+- name: Unstaged
+  scope: '
+    text.git-commit-msg.unstaged keyword.other.new-file,
+    text.git-commit-msg.unstaged keyword.other.modified,
+    text.git-commit-msg.unstaged keyword.other.deleted,
+    text.git-commit-msg.unstaged markup.inserted,
+    text.git-commit-msg.unstaged markup.changed,
+    text.git-commit-msg.unstaged markup.deleted
+  '
+  settings:
+    foreground: '#f7b73b'
+
 - name: Inserted
   scope: markup.inserted
   settings:
@@ -72,11 +111,13 @@ settings:
   scope: markup.untracked
   settings:
     foreground: '#FF5370'
+
 - name: Commit Message Heading
   scope: text.git-commit-msg markup.heading
   settings:
     fontStyle: normal
     foreground: '#92d3c4'
+
 - name: Status
   scope: keyword.other.status
   settings:
@@ -93,6 +134,7 @@ settings:
   scope: keyword.other.status.diverged
   settings:
     foreground: '#C792EA'
+
 - name: (Author) Name
   scope: string.unquoted.name
   settings:
@@ -101,17 +143,10 @@ settings:
   scope: string.unquoted.email
   settings:
     foreground: '#f4bf90'
-- name: Slightly Too Long
-  scope: invalid.illegal.slightly-too-long
-  settings:
-    background: '#C792EA'
-    foreground: '#ffffff'
+
 - name: Operator, Misc
   scope: keyword.operator, constant.other.color, punctuation
   settings:
     foreground: '#89DDFF'
-- name: Status
-  scope: text.git-commit-msg.summary
-  settings:
-    foreground: '#89DDFF'
+
 uuid: A683AC57-2830-4F54-A918-20F369CB567E

@@ -74,54 +74,21 @@ contexts:
         "1": keyword.other.date
         "2": string.unquoted.date
 
-    # TODO: can I reduce this duplication??
     - match: ^#\s(Changes to be committed:)
       scope: comment.line.number-sign
       captures:
         "1": markup.heading
       push:
-        - meta_include_prototype: false
-        - match: ^#\s+(new file:)\s+(.*)
-          scope: comment.line.number-sign
-          captures:
-            "1": markup.inserted
-            "2": markup.inserted
-        - match: ^#\s+(modified:)\s+(.*)
-          scope: comment.line.number-sign
-          captures:
-            "1": markup.inserted
-            "2": markup.changed
-        # split on the the first ' -> ', if the filename has
-        # ' -> ' in it, may god have mercy on your soul.
-        - match: ^#\s+(renamed:)(.*?)( -> )(.*)
-          scope: comment.line.number-sign
-          captures:
-            "1": markup.inserted
-            "2": markup.changed
-            "4": markup.inserted
-        - match: ^#\s+(deleted:)\s+(.*)
-          scope: comment.line.number-sign
-          captures:
-            "1": markup.inserted
-            "2": markup.deleted
-        - match: ^#\s*$
-          scope: comment.line.number-sign
-          pop: true
+        - meta_content_scope: text.git-commit-msg.committed
+        - include: changes
 
     - match: ^#\s(Changes not staged for commit:)
       scope: comment.line.number-sign
       captures:
         "1": markup.heading
       push:
-        - meta_include_prototype: false
-        - match: ^#\s+(new file:|modified:|deleted:)\s+(.*)
-          scope: comment.line.number-sign
-          captures:
-            "1": markup.changed
-            "2": markup.changed
-        - match: ^#\s*$
-          scope: comment.line.number-sign
-          pop: true
+        - meta_content_scope: text.git-commit-msg.unstaged
+        - include: changes
 
     - match: "^# (Untracked files:)"
       scope: comment.line.number-sign
@@ -151,3 +118,32 @@ contexts:
     # Plain ol' comment
     - match: (^#.*$)
       scope: comment.line.number-sign
+
+  changes:
+    - meta_include_prototype: false
+    - match: ^#\s+(new file:)\s+(.*)
+      scope: comment.line.number-sign
+      captures:
+        "1": keyword.other.new-file
+        "2": markup.inserted
+    - match: ^#\s+(modified:)\s+(.*)
+      scope: comment.line.number-sign
+      captures:
+        "1": keyword.other.modified
+        "2": markup.changed
+    # split on the the first ' -> ', if the filename has
+    # ' -> ' in it, may god have mercy on your soul.
+    - match: ^#\s+(renamed:)(.*?)( -> )(.*)
+      scope: comment.line.number-sign
+      captures:
+        "1": keyword.other.renamed
+        "2": markup.changed
+        "4": markup.inserted
+    - match: ^#\s+(deleted:)\s+(.*)
+      scope: comment.line.number-sign
+      captures:
+        "1": keyword.other.deleted
+        "2": markup.deleted
+    - match: ^#\s*$
+      scope: comment.line.number-sign
+      pop: true
