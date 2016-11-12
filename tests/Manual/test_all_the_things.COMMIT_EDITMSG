@@ -34,6 +34,8 @@ This is a body line which is too long. The end of it yells at you encouraging yo
 #	new file:   path to b
 #	modified:   path/to/c
 #	modified:   path to d
+#	renamed:    path/to/o -> path/to/p
+#	renamed:    path to q -> path to r
 #	deleted:    path/to/e
 #	deleted:    path to f
 #

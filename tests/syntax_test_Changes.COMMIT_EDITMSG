@@ -19,6 +19,16 @@ The syntax test line ends up being included as the actual first line.
 ' ^^^^^^^^^ markup.inserted
 '             ^^^^^^^^^ markup.changed
 '^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+# renamed:    path/to/o -> path/to/p
+' ^^^^^^^^ markup.inserted
+'             ^^^^^^^^^ markup.changed
+'                          ^^^^^^^^^ markup.inserted
+'^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+# renamed:    path to q -> path to r
+' ^^^^^^^^ markup.inserted
+'             ^^^^^^^^^ markup.changed
+'                          ^^^^^^^^^ markup.inserted
+'^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
 # deleted:    path/to/e
 ' ^^^^^^^^ markup.inserted
 '             ^^^^^^^^^ markup.deleted

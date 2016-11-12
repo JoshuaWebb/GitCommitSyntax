@@ -91,6 +91,14 @@ contexts:
           captures:
             "1": markup.inserted
             "2": markup.changed
+        # split on the the first ' -> ', if the filename has
+        # ' -> ' in it, may god have mercy on your soul.
+        - match: ^#\s+(renamed:)(.*?)( -> )(.*)
+          scope: comment.line.number-sign
+          captures:
+            "1": markup.inserted
+            "2": markup.changed
+            "4": markup.inserted
         - match: ^#\s+(deleted:)\s+(.*)
           scope: comment.line.number-sign
           captures:
