@@ -220,7 +220,7 @@
 			<key>name</key>
 			<string>Untracked File</string>
 			<key>scope</key>
-			<string>markup.untracked</string>
+			<string>markup.list.unnumbered.untracked</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>

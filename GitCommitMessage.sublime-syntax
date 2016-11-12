@@ -99,7 +99,7 @@ contexts:
         - match: ^#\s+(\S.*)$
           scope: comment.line.number-sign
           captures:
-            "1": markup.untracked
+            "1": markup.list.unnumbered.untracked
         - match: ^#\s*$
           scope: comment.line.number-sign
           pop: true

@@ -108,7 +108,7 @@ settings:
   settings:
     foreground: '#FF5370'
 - name: Untracked File
-  scope: markup.untracked
+  scope: markup.list.unnumbered.untracked
   settings:
     foreground: '#FF5370'
 

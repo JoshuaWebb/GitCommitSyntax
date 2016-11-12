@@ -68,9 +68,9 @@ The syntax test line ends up being included as the actual first line.
 # Untracked files:
 ' ^^^^^^^^^^^^^^^^ comment.line.number-sign markup.heading
 # path/to/m
-' ^^^^^^^^^ markup.untracked
+' ^^^^^^^^^ markup.list.unnumbered.untracked
 '^^^^^^^^^^ comment.line.number-sign
 # path to n
-' ^^^^^^^^^ markup.untracked
+' ^^^^^^^^^ markup.list.unnumbered.untracked
 '^^^^^^^^^^ comment.line.number-sign
 #
