@@ -31,10 +31,10 @@ The syntax test line ends up being included as the actual first line.
 '                                          ^ constant.numeric
 ' ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
 #
-# Your branch is up-to-date with 'origin/master'
+# Your branch is up-to-date with 'origin/master'.
 '                ^^^^^^^^^^ keyword.other.status
 '                                 ^^^^^^^^^^^^^ string.unquoted.branch-name.remote
-' ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+' ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
 #
 # Your branch and 'origin/master' have diverged,
 '                                      ^^^^^^^^ keyword.other.status

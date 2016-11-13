@@ -32,7 +32,7 @@ This is a body line which is too long. The end of it yells at you encouraging yo
 #
 # Your branch is behind 'origin/master' by 34 commits, and can be fast-forwarded.
 #
-# Your branch is up-to-date with 'origin/master'
+# Your branch is up-to-date with 'origin/master'.
 #
 # Your branch and 'origin/master' have diverged,
 # and have 1 and 2 different commits each, respectively.

@@ -45,7 +45,7 @@ contexts:
         "2": keyword.other.status.behind
         "3": string.unquoted.branch-name.remote
         "4": constant.numeric
-    - match: ^#\sYour branch is (up-to-date) with '(.*)'
+    - match: ^#\sYour branch is (up-to-date) with '(.*)'\.
       scope: comment.line.number-sign
       captures:
         "1": keyword.other.status.up-to-date
