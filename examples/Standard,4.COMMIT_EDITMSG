@@ -1,0 +1,21 @@
+This is the first line
+# This comment line is skipped
+This is the second line (supposed to be blank)
+This is a body line
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Changes to be committed:
+#	new file:   path/to/a
+#	modified:   path/to/b
+#	renamed:    path/to/c -> path/to/d
+#	deleted:    path/to/e
+#
+# Changes not staged for commit:
+#	new file:   path/to/f
+#	modified:   path/to/g
+#	deleted:    path/to/h
+#
+# Untracked files:
+#	path/to/i
+#

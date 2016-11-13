@@ -1,0 +1,20 @@
+# Git ignores comments and leading whitespace
+
+# So the syntax does too!
+
+This is the "real" first line
+
+/*
+ * The default commit message cleanup mode will remove the lines
+ * beginning with # (shell comments) and leading and trailing
+ * whitespaces (empty lines or containing only whitespaces)
+ * if editor is used, and only the whitespaces if the message
+ * is specified explicitly.
+ */
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Changes to be committed:
+#	new file:   path/to/a
+#	deleted:    path/to/b
+#

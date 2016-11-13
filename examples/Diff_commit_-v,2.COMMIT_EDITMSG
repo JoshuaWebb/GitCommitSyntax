@@ -1,0 +1,20 @@
+Include diff at the bottom with `git commit -v`
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Changes to be committed:
+#	modified:   pangram
+#
+# ------------------------ >8 ------------------------
+# Do not touch the line above.
+# Everything below will be removed.
+diff --git a/pangram b/pangram
+index 4ae9d5a..57bfdda 100644
+--- a/pangram
++++ b/pangram
+@@ -1,3 +1,3 @@
+ The quick brown
+-fox jumps over the
++fox jumps over a
+ lazy dog
