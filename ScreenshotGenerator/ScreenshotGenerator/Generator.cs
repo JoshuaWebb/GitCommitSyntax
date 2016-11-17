@@ -19,7 +19,7 @@ namespace ScreenshotGenerator
             {
                 var info = new DirectoryInfo(directory);
                 var delay = 250; // 2.5 seconds
-                foreach (var file in info.GetFiles("*.png").OrderBy(p => p.CreationTime))
+                foreach (var file in info.GetFiles("*.png").OrderBy(p => p.Name))
                 {
                     var item = new MagickImage(file.FullName);
                     item.AnimationDelay = delay;
