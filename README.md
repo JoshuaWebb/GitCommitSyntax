@@ -13,6 +13,10 @@ Includes highlighting for:
  - Changes (staged/unstaged/untracked)
  - diff (commit -v)
 
+# Examples
+
+![Examples](screenshots/examples.gif)
+
 # Optional/Example Theme Included
 
 Theme based on [Material Theme](https://github.com/equinusocio/material-theme) by Mattia Astorino

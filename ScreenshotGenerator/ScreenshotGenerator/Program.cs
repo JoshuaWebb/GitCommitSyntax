@@ -15,7 +15,7 @@ namespace ScreenshotGenerator
             Application.SetCompatibleTextRenderingDefault(false);
 
             const string examplesPath = @"C:\Users\user\AppData\Roaming\Sublime Text 3\Packages\GitCommitSyntax\examples";
-            const string outputPath = @"C:\Users\user\AppData\Roaming\Sublime Text 3\Packages\GitCommitSyntax\generated";
+            const string outputPath = @"C:\Users\user\AppData\Roaming\Sublime Text 3\Packages\GitCommitSyntax\screenshots";
             const string sublimePath =  @"C:\Program Files\Sublime Text 3\sublime_text.exe";
 
             var form = args.Length == 0
