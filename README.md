@@ -19,4 +19,6 @@ Includes highlighting for:
 
 # Optional/Example Theme Included
 
-Theme based on [Material Theme](https://github.com/equinusocio/material-theme) by Mattia Astorino
+Theme based on [Material Theme](https://github.com/equinusocio/material-theme) by Mattia Astorino.
+
+You can use the example file [all-in-one](examples/all-in-one.COMMIT_EDITMSG) to fine tune your theme.

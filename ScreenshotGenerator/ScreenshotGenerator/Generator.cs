@@ -51,11 +51,14 @@ namespace ScreenshotGenerator
             // click away while it is taking screenshots
             foreach (var sampleTextFile in sampleTextFiles)
             {
+                var split = Path.GetFileNameWithoutExtension(sampleTextFile).Split(',');
+                if (split.Length == 1)
+                    continue;
+
+                var cursorLine = int.Parse(split[1]);
+
                 var sampleText = File.ReadAllText(sampleTextFile);
                 Clipboard.SetDataObject(sampleText, true);
-
-                var split = Path.GetFileNameWithoutExtension(sampleTextFile).Split(',');
-                var cursorLine = int.Parse(split[1]);
 
                 // Try to ensure the window is still focused
                 WindowHelper.SetCurrentWindow(handle);

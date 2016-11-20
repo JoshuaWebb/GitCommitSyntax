@@ -1,0 +1,56 @@
+The subject/summary line has multiple thresholds. [this one] which is BM and [this one] which is extreme BM
+ ==== This line should be blank, so it is yelling at you === 
+This is a body line which is too long. The end of it yells at you encouraging you to wrap it yourself.
+
+# Conflicts:
+#	path/to/c
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Author:    New Author Name <email@address.com>
+# Date:      Sat Nov 5 14:54:19 2016 +1100
+#
+# On branch master
+#
+# Your branch is ahead of 'origin/master' by 12 commits.
+#
+# Your branch is behind 'origin/master' by 34 commits, and can be fast-forwarded.
+#
+# Your branch is up-to-date with 'origin/master'.
+#
+# Your branch and 'origin/master' have diverged,
+# and have 56 and 78 different commits each, respectively.
+#
+# Changes to be committed:
+#	new file:   path/to/a
+#	modified:   path/to/b
+#	renamed:    path/to/c -> path/to/d
+#	deleted:    path/to/f
+#
+# Changes not staged for commit:
+#	new file:   path/to/g
+#	modified:   path/to/h
+#	deleted:    path/to/i
+#
+# Untracked files:
+#	path/to/j
+#
+# ------------------------ >8 ------------------------
+# Do not touch the line above.
+# Everything below will be removed.
+diff --git a/pangram b/pangram
+index 4ae9d5a..57bfdda 100644
+--- a/pangram
++++ b/pangram
+@@ -1,3 +1,3 @@
+ The quick brown
+-fox jumps over the
++fox jumps over a
+ lazy dog
