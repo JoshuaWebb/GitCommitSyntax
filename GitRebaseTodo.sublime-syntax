@@ -1,0 +1,155 @@
+%YAML 1.2
+---
+name: Git Rebase Todo
+file_extensions: [git-rebase-todo]
+scope: text.git-rebase-todo
+uuid: 2D60F5C5-6AA1-4AB7-87A6-A7CD469F591E
+
+variables:
+  sha: '[a-f0-9]{6,40}'
+
+contexts:
+  prototype:
+    - include: comments
+
+  command:
+    - match: ({{sha}})\s+(.*)$
+      captures:
+        "1": constant.numeric text.git-rebase-todo.sha
+        "2": string.unquoted text.git-rebase-todo.summary
+      pop: true
+
+  main:
+    - match: ^(p(?:ick)?)\s+
+      scope: text.git-rebase-todo.command keyword.other.command.pick
+      captures:
+        "1": keyword.other.command.pick
+      set:
+        - meta_scope: keyword.other.command.pick
+        - include: 'command'
+
+    - match: ^(e(?:dit)?)\s+
+      scope: text.git-rebase-todo.command keyword.other.command.edit
+      captures:
+        "1": keyword.other.command.edit
+      set:
+        - meta_scope: keyword.other.command.edit
+        - include: 'command'
+
+    - match: ^(r(?:eword)?)\s+
+      scope: text.git-rebase-todo.command keyword.other.command.reword
+      captures:
+        "1": keyword.other.command.reword
+      set:
+        - meta_scope: keyword.other.command.reword
+        - include: 'command'
+
+    - match: ^(f(?:ixup)?)\s+
+      scope: text.git-rebase-todo.command keyword.other.command.fixup
+      captures:
+        "1": keyword.other.command.fixup
+      set:
+        - meta_scope: keyword.other.command.fixup
+        - include: 'command'
+
+    - match: ^(s(?:quash)?)\s+
+      scope: text.git-rebase-todo.command keyword.other.command.squash
+      captures:
+        "1": keyword.other.command.squash
+      set:
+        - meta_scope: keyword.other.command.squash
+        - include: 'command'
+
+    - match: ^(d(?:rop)?)\s+
+      scope: text.git-rebase-todo.command keyword.other.command.drop
+      captures:
+        "1": keyword.other.command.drop
+      set:
+        - meta_scope: keyword.other.command.drop
+        - include: 'command'
+
+    - match: ^(x|(?:exec))
+      scope: text.git-rebase-todo.command
+      captures:
+        "1": keyword.other.command.exec
+      push: 'Packages/ShellScript/Shell-Unix-Generic.sublime-syntax'
+      with_prototype:
+        - match: $
+          pop: true
+
+  comments:
+    - match: ^#\s(p)(,) (pick) (=) (.*)$
+      scope: comment.line.number-sign text.git-rebase-todo.command-description
+      captures:
+        "1": keyword.other.command.pick
+        "2": punctuation.operator
+        "3": keyword.other.command.pick
+        "4": punctuation.operator
+        "5": string.unquoted
+
+    - match: ^#\s(e)(,) (edit) (=) (.*)$
+      scope: comment.line.number-sign text.git-rebase-todo.command-description
+      captures:
+        "1": keyword.other.command.edit
+        "2": punctuation.operator
+        "3": keyword.other.command.edit
+        "4": punctuation.operator
+        "5": string.unquoted
+
+    - match: ^#\s(r)(,) (reword) (=) (.*)$
+      scope: comment.line.number-sign text.git-rebase-todo.command-description
+      captures:
+        "1": keyword.other.command.reword
+        "2": punctuation.operator
+        "3": keyword.other.command.reword
+        "4": punctuation.operator
+        "5": string.unquoted
+
+    - match: ^#\s(s)(,) (squash) (=) (.*)$
+      scope: comment.line.number-sign text.git-rebase-todo.command-description
+      captures:
+        "1": keyword.other.command.squash
+        "2": punctuation.operator
+        "3": keyword.other.command.squash
+        "4": punctuation.operator
+        "5": string.unquoted
+
+    - match: ^#\s(f)(,) (fixup) (=) (.*)$
+      scope: comment.line.number-sign text.git-rebase-todo.command-description
+      captures:
+        "1": keyword.other.command.fixup
+        "2": punctuation.operator
+        "3": keyword.other.command.fixup
+        "4": punctuation.operator
+        "5": string.unquoted
+
+    - match: ^#\s(x)(,) (exec) (=) (.*)$
+      scope: comment.line.number-sign text.git-rebase-todo.command-description
+      captures:
+        "1": keyword.other.command.exec
+        "2": punctuation.operator
+        "3": keyword.other.command.exec
+        "4": punctuation.operator
+        "5": string.unquoted
+
+    - match: ^#\s(d)(,) (drop) (=) (.*)$
+      scope: comment.line.number-sign text.git-rebase-todo.command-description
+      captures:
+        "1": keyword.other.command.drop
+        "2": punctuation.operator
+        "3": keyword.other.command.drop
+        "4": punctuation.operator
+        "5": string.unquoted
+
+    - match: ^#\sRebase ([a-f0-9]+)(..)([a-f0-9]+) onto ([a-f0-9]+) \((\d+) commands\)
+      scope: comment.line.number-sign text.git-rebase-todo.description
+      captures:
+        "1": constant.numeric text.git-rebase-todo.sha
+        "2": punctuation.operator
+        "3": constant.numeric text.git-rebase-todo.sha
+        "4": constant.numeric text.git-rebase-todo.sha
+        "5": constant.numeric
+
+    # Plain ol' comment
+    - match: (^#.*$)
+      scope: comment.line.number-sign

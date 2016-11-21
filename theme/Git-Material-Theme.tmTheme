@@ -339,6 +339,105 @@
 				<string>#77a2b6</string>
 			</dict>
 		</dict>
+		<dict>
+			<key>name</key>
+			<string>Sha1</string>
+			<key>scope</key>
+			<string>text.git-rebase-todo.sha</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#ffcc00</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Command Description</string>
+			<key>scope</key>
+			<string> text.git-rebase-todo.command-description string.unquoted, text.git-rebase-todo.command-description keyword.other.command.pick, text.git-rebase-todo.command-description keyword.other.command.reword, text.git-rebase-todo.command-description keyword.other.command.edit, text.git-rebase-todo.command-description keyword.other.command.squash, text.git-rebase-todo.command-description keyword.other.command.fixup, text.git-rebase-todo.command-description keyword.other.command.exec, text.git-rebase-todo.command-description keyword.other.command.drop </string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#77a2b6</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Rebase Command (Pick)</string>
+			<key>scope</key>
+			<string>keyword.other.command.pick , keyword.other.command.pick text.git-rebase-todo.summary</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#96e56b</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Rebase Command (Edit)</string>
+			<key>scope</key>
+			<string>keyword.other.command.edit , keyword.other.command.edit text.git-rebase-todo.summary</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#ffaf48</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Rebase Command (Fixup)</string>
+			<key>scope</key>
+			<string>keyword.other.command.fixup , keyword.other.command.fixup text.git-rebase-todo.summary</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#C792EA</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Rebase Command (Reword)</string>
+			<key>scope</key>
+			<string>keyword.other.command.reword , keyword.other.command.reword text.git-rebase-todo.summary</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#35e5ad</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Rebase Command (Squash)</string>
+			<key>scope</key>
+			<string>keyword.other.command.squash , keyword.other.command.squash text.git-rebase-todo.summary</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#6fbaff</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Rebase Command (Drop)</string>
+			<key>scope</key>
+			<string>keyword.other.command.drop , keyword.other.command.drop text.git-rebase-todo.summary</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#ff5c5c</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Rebase Command (Exec)</string>
+			<key>scope</key>
+			<string>keyword.other.command.exec</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#e3e2d5</string>
+			</dict>
+		</dict>
 	</array>
 	<key>uuid</key>
 	<string>A683AC57-2830-4F54-A918-20F369CB567E</string>

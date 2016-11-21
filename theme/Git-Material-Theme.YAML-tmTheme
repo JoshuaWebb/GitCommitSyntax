@@ -158,4 +158,60 @@ settings:
   settings:
     foreground: '#77a2b6'
 
+# ---------------- Git rebase -------------
+- name: Sha1
+  scope: text.git-rebase-todo.sha
+  settings:
+    foreground: '#ffcc00'
+
+# This makes it slightly less busy
+- name: Command Description
+  scope:  ' 
+  text.git-rebase-todo.command-description string.unquoted,
+  text.git-rebase-todo.command-description keyword.other.command.pick,
+  text.git-rebase-todo.command-description keyword.other.command.reword,
+  text.git-rebase-todo.command-description keyword.other.command.edit,
+  text.git-rebase-todo.command-description keyword.other.command.squash,
+  text.git-rebase-todo.command-description keyword.other.command.fixup,
+  text.git-rebase-todo.command-description keyword.other.command.exec,
+  text.git-rebase-todo.command-description keyword.other.command.drop
+  '
+  settings:
+    foreground: '#77a2b6'
+
+- name: Rebase Command (Pick)
+  scope: keyword.other.command.pick , keyword.other.command.pick text.git-rebase-todo.summary
+  settings:
+    foreground: '#96e56b'
+
+- name: Rebase Command (Edit)
+  scope: keyword.other.command.edit , keyword.other.command.edit text.git-rebase-todo.summary
+  settings:
+    foreground: '#ffaf48'
+
+- name: Rebase Command (Fixup)
+  scope: keyword.other.command.fixup , keyword.other.command.fixup text.git-rebase-todo.summary
+  settings:
+    foreground: '#C792EA'
+
+- name: Rebase Command (Reword)
+  scope: keyword.other.command.reword , keyword.other.command.reword text.git-rebase-todo.summary
+  settings:
+    foreground: '#35e5ad'
+
+- name: Rebase Command (Squash)
+  scope: keyword.other.command.squash , keyword.other.command.squash text.git-rebase-todo.summary
+  settings:
+    foreground: '#6fbaff'
+
+- name: Rebase Command (Drop)
+  scope: keyword.other.command.drop , keyword.other.command.drop text.git-rebase-todo.summary
+  settings:
+    foreground: '#ff5c5c'
+
+- name: Rebase Command (Exec)
+  scope: keyword.other.command.exec
+  settings:
+    foreground: '#e3e2d5'
+
 uuid: A683AC57-2830-4F54-A918-20F369CB567E
