@@ -354,7 +354,7 @@
 			<key>name</key>
 			<string>Command Description</string>
 			<key>scope</key>
-			<string> text.git-rebase-todo.command-description string.unquoted, text.git-rebase-todo.command-description keyword.other.command.pick, text.git-rebase-todo.command-description keyword.other.command.reword, text.git-rebase-todo.command-description keyword.other.command.edit, text.git-rebase-todo.command-description keyword.other.command.squash, text.git-rebase-todo.command-description keyword.other.command.fixup, text.git-rebase-todo.command-description keyword.other.command.exec, text.git-rebase-todo.command-description keyword.other.command.drop </string>
+			<string>text.git-rebase-todo.command-description</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -365,7 +365,7 @@
 			<key>name</key>
 			<string>Rebase Command (Pick)</string>
 			<key>scope</key>
-			<string>keyword.other.command.pick , keyword.other.command.pick text.git-rebase-todo.summary</string>
+			<string>text.git-rebase-todo.command.pick keyword.other, text.git-rebase-todo.command.pick text.git-rebase-todo.summary</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -376,7 +376,7 @@
 			<key>name</key>
 			<string>Rebase Command (Edit)</string>
 			<key>scope</key>
-			<string>keyword.other.command.edit , keyword.other.command.edit text.git-rebase-todo.summary</string>
+			<string>text.git-rebase-todo.command.edit keyword.other, text.git-rebase-todo.command.edit text.git-rebase-todo.summary</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -387,7 +387,7 @@
 			<key>name</key>
 			<string>Rebase Command (Fixup)</string>
 			<key>scope</key>
-			<string>keyword.other.command.fixup , keyword.other.command.fixup text.git-rebase-todo.summary</string>
+			<string>text.git-rebase-todo.command.fixup keyword.other, text.git-rebase-todo.command.fixup text.git-rebase-todo.summary</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -398,7 +398,7 @@
 			<key>name</key>
 			<string>Rebase Command (Reword)</string>
 			<key>scope</key>
-			<string>keyword.other.command.reword , keyword.other.command.reword text.git-rebase-todo.summary</string>
+			<string>text.git-rebase-todo.command.reword keyword.other, text.git-rebase-todo.command.reword text.git-rebase-todo.summary</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -409,7 +409,7 @@
 			<key>name</key>
 			<string>Rebase Command (Squash)</string>
 			<key>scope</key>
-			<string>keyword.other.command.squash , keyword.other.command.squash text.git-rebase-todo.summary</string>
+			<string>text.git-rebase-todo.command.squash keyword.other, text.git-rebase-todo.command.squash text.git-rebase-todo.summary</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -420,7 +420,7 @@
 			<key>name</key>
 			<string>Rebase Command (Drop)</string>
 			<key>scope</key>
-			<string>keyword.other.command.drop , keyword.other.command.drop text.git-rebase-todo.summary</string>
+			<string>text.git-rebase-todo.command.drop keyword.other, text.git-rebase-todo.command.drop text.git-rebase-todo.summary</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -431,9 +431,11 @@
 			<key>name</key>
 			<string>Rebase Command (Exec)</string>
 			<key>scope</key>
-			<string>keyword.other.command.exec</string>
+			<string>text.git-rebase-todo.command.exec keyword.other</string>
 			<key>settings</key>
 			<dict>
+				<key>background</key>
+				<string>#545962</string>
 				<key>foreground</key>
 				<string>#e3e2d5</string>
 			</dict>
