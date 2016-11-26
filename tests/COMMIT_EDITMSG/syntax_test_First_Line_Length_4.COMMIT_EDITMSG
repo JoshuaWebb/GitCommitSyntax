@@ -1,4 +1,4 @@
-# SYNTAX TEST "Packages/GitCommitSyntax/GitCommitMessage.sublime-syntax"
+# SYNTAX TEST "GitCommitMessage.sublime-syntax"
 This test only works when comment lines aren't treated as the first line
 
 This test ensures that the rest of the syntax works when the first line is slightly too long
