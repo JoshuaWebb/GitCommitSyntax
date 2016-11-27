@@ -1,51 +1,41 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Runtime.InteropServices;
 
 namespace ScreenshotGenerator
 {
     public static class BitmapExtensions
     {
-        public static Bitmap ReplaceColor(this Bitmap _image, Color target, Color replacement)
+        // Fast comparison of two images
+        [DllImport("msvcrt.dll")]
+        private static extern int memcmp(IntPtr b1, IntPtr b2, long count);
+
+        //http://stackoverflow.com/a/2038515
+        public static bool PixelEquals(this Bitmap b1, Bitmap b2)
         {
-            var b = new Bitmap(_image);
+            if ((b1 == null) != (b2 == null)) return false;
+            if (b1 == null) return true;
+            if (b1.Size != b2.Size) return false;
 
-            var bData = b.LockBits(new Rectangle(0, 0, _image.Width, _image.Height), ImageLockMode.ReadWrite, b.PixelFormat);
+            var bd1 = b1.LockBits(new Rectangle(new System.Drawing.Point(0, 0), b1.Size), ImageLockMode.ReadOnly, b1.PixelFormat);
+            var bd2 = b2.LockBits(new Rectangle(new System.Drawing.Point(0, 0), b2.Size), ImageLockMode.ReadOnly, b1.PixelFormat);
 
-            var bitsPerPixel = Image.GetPixelFormatSize(bData.PixelFormat);
-            if (bitsPerPixel < 24)
-                throw new InvalidOperationException("Can't handle your small amount of bits per pixel");
-
-            /*the size of the image in bytes */
-            var size = bData.Stride * bData.Height;
-
-            /*Allocate buffer for image*/
-            var data = new byte[size];
-
-            /*This overload copies data of /size/ into /data/ from location specified (/Scan0/)*/
-            System.Runtime.InteropServices.Marshal.Copy(bData.Scan0, data, 0, size);
-
-
-            for (var i = 0; i < size; i += bitsPerPixel / 8)
+            try
             {
-                var blue = data[i];
-                var green = data[i + 1];
-                var red = data[i + 2];
+                var bd1Scan0 = bd1.Scan0;
+                var bd2Scan0 = bd2.Scan0;
 
-                if (red == target.R && green == target.G && blue == target.B)
-                {
-                    data[i] = replacement.B;
-                    data[i + 1] = replacement.G;
-                    data[i + 2] = replacement.R;
-                }
+                var stride = bd1.Stride;
+                var len = stride * b1.Height;
+
+                return memcmp(bd1Scan0, bd2Scan0, len) == 0;
             }
-
-            /* This override copies the data back into the location specified */
-            System.Runtime.InteropServices.Marshal.Copy(data, 0, bData.Scan0, data.Length);
-
-            b.UnlockBits(bData);
-
-            return b;
+            finally
+            {
+                b1.UnlockBits(bd1);
+                b2.UnlockBits(bd2);
+            }
         }
     }
 }

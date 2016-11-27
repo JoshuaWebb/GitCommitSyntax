@@ -11,26 +11,27 @@ namespace ScreenshotGenerator
     {
         private readonly string _examplesDir;
         private readonly string _outputDir;
+        private readonly string _testFileName;
 
-        public AutoCaptureForm(string examplesDir, string outputDir, string sublimePath)
+        public AutoCaptureForm(string examplesDir, string fileType, string outputDir, string sublimePath)
         {
             _examplesDir = examplesDir;
             _outputDir = outputDir;
             _sublimePath = sublimePath;
+            _testFileName = fileType;
 
             InitializeComponent();
 
             WindowState = FormWindowState.Minimized;
         }
 
-        private const string TestFileName = "COMMIT_EDITMSG";
         private readonly string _sublimePath;
 
         private void AutoCaptureForm_Load(object sender, EventArgs e)
         {
             // "-n" forces a new window no matter what files are already open
             // We may end up with two windows if the last session is enabled
-            var sublime = Process.Start(_sublimePath, "-n " + TestFileName);
+            var sublime = Process.Start(_sublimePath, "-n " + _testFileName);
             sublime.WaitForInputIdle();
 
             var maxTries = 5;
@@ -53,7 +54,7 @@ namespace ScreenshotGenerator
             {
                 var sublimeContainingWindow =
                     Process.GetProcessesByName("sublime_text").
-                    FirstOrDefault(proc => proc.MainWindowTitle.Contains(TestFileName));
+                    FirstOrDefault(proc => proc.MainWindowTitle.Contains(_testFileName));
 
                 if (sublimeContainingWindow != null)
                 {

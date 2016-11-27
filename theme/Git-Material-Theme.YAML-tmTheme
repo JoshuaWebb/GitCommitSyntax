@@ -5,7 +5,7 @@ settings:
 - settings:
     activeGuide: '#80CBC470'
     background: '#263238'
-    caret: '#FFCC00'
+    caret: '#263238'
     findHighlight: '#F8E71C'
     foreground: '#eeffff'
     guide: '#37474F80'
