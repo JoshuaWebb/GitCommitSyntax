@@ -15,7 +15,7 @@ Includes highlighting for:
 
 ## Examples
 
-![Examples](https://github.com/JoshuaWebb/GitCommitSyntax/blob/samples/screenshots/examples.gif?raw=true)
+![Examples](https://github.com/JoshuaWebb/GitCommitSyntax/blob/samples/screenshots/COMMIT_EDITMSG/examples.gif?raw=true)
 
 Checkout the `samples` branch for full samples.
 
@@ -25,10 +25,13 @@ Syntax Highlighting for interactive rebase (`git rebase -i`)
 
 ## Examples
 
-TODO: make samples for this
+![Examples](https://github.com/JoshuaWebb/GitCommitSyntax/blob/samples/screenshots/git-rebase-todo/examples.gif?raw=true)
 
 # Optional/Example Theme Included
 
 Theme based on [Material Theme](https://github.com/equinusocio/material-theme) by Mattia Astorino.
 
-You can use the example file [all-in-one](https://github.com/JoshuaWebb/GitCommitSyntax/blob/samples/examples/all-in-one.COMMIT_EDITMSG?raw=true) to fine tune your theme.
+You can use the example
+[COMMIT_EDITMSG](https://github.com/JoshuaWebb/GitCommitSyntax/blob/samples/examples/all-in-one.COMMIT_EDITMSG?raw=true) and
+[git-rebase-todo](https://github.com/JoshuaWebb/GitCommitSyntax/blob/samples/examples/all-in-one.git-rebase-todo?raw=true)
+all-in-one files to fine tune your theme.
