@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+./ScreenshotGenerator/ScreenshotGenerator/bin/x64/Debug/ScreenshotGenerator.exe $@
