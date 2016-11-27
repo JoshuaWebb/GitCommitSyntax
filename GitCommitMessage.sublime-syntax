@@ -158,10 +158,11 @@ contexts:
         "2": markup.changed
     # split on the the first ' -> ', if the filename has
     # ' -> ' in it, may god have mercy on your soul.
-    - match: ^#\s+(renamed:)\s+(.*?)( -> )(.*)
+    - match: ^#\s+(renamed:)\s+(.*?)(?:\s(->)\s)(.*)
       scope: comment.line.number-sign
       captures:
         "1": keyword.other.renamed
+        "3": punctuation.operator
         "2": markup.changed
         "4": markup.inserted
     - match: ^#\s+(deleted:)\s+(.*)

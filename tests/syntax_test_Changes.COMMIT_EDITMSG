@@ -22,11 +22,13 @@ The syntax test line ends up being included as the actual first line.
 # renamed:    path/to/o -> path/to/p
 ' ^^^^^^^^ keyword.other.renamed
 '             ^^^^^^^^^ markup.changed
+'                       ^^ punctuation.operator
 '                          ^^^^^^^^^ markup.inserted
 '^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-commit-msg.committed comment.line.number-sign
 # renamed:    path to q -> path to r
 ' ^^^^^^^^ keyword.other.renamed
 '             ^^^^^^^^^ markup.changed
+'                       ^^ punctuation.operator
 '                          ^^^^^^^^^ markup.inserted
 '^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-commit-msg.committed comment.line.number-sign
 # deleted:    path/to/e
