@@ -1,0 +1,12 @@
+%YAML 1.2
+---
+name: Hunk Edit
+file_extensions: [addp-hunk-edit.diff]
+scope: text.git
+uuid: 8AC44104-80C1-478D-80D7-9427A8FBEE3E
+
+contexts:
+  main:
+    - include: "Packages/Diff/Diff.sublime-syntax"
+    - match: ^#.*$
+      scope: comment.line.number-sign
