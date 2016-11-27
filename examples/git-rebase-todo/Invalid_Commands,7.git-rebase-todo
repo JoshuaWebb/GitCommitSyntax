@@ -1,0 +1,10 @@
+# invalid commands are highlighted
+pi 40e4cd6 Some commit message
+
+not 794e871 Not a valid command
+
+squashb0539ee Missing the space between command and sha
+
+# Rebase 9a747c8..b0539ee onto 9a747c8 (3 commands)
+#
+# ...

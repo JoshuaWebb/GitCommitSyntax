@@ -1,0 +1,11 @@
+pick 40e4cd6 Some commit message
+reword bcd26b4 Some commit message
+edit 794e871 Some commit message
+squash b0539ee Some commit message
+fixup e9f5623 Some commit message
+drop e65de95 Some commit message
+exec ls some_dir; cat file1; printf "some text\n"
+
+# Rebase 9a747c8..e65de95 onto 9a747c8 (6 commands)
+#
+# ...
