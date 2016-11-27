@@ -1,0 +1,4 @@
+# SYNTAX TEST "GitRebaseTodo.sublime-syntax"
+not 40e4cd6 Not a valid command
+#<- invalid.illegal
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.illegal

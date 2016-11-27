@@ -1,7 +1,7 @@
 %YAML 1.2
 ---
 name: Git Commit Message
-file_extensions: [COMMIT_EDITMSG, MERGE_MSG]
+file_extensions: [COMMIT_EDITMSG, MERGE_MSG, TAG_EDITMSG]
 scope: text.git-commit-msg
 uuid: BD99186C-6F05-4A89-9BBC-B6AFB205B7BC
 

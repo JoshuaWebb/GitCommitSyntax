@@ -1,0 +1,28 @@
+# SYNTAX TEST "GitRebaseTodo.sublime-syntax"
+p 40e4cd6 Some commit message
+#<- text.git-rebase-todo.command.pick
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.command.pick
+# ^^^^^^^ text.git-rebase-todo.sha
+r bcd26b4 Some commit message
+#<- text.git-rebase-todo.command.reword
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.command.reword
+# ^^^^^^^ text.git-rebase-todo.sha
+e 794e871 Some commit message
+#<- text.git-rebase-todo.command.edit
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.command.edit
+# ^^^^^^^ text.git-rebase-todo.sha
+s b0539ee Some commit message
+#<- text.git-rebase-todo.command.squash
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.command.squash
+# ^^^^^^^ text.git-rebase-todo.sha
+f e9f5623 Some commit message
+#<- text.git-rebase-todo.command.fixup
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.command.fixup
+# ^^^^^^^ text.git-rebase-todo.sha
+d e65de95 Some commit message
+#<- text.git-rebase-todo.command.drop
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.command.drop
+# ^^^^^^^ text.git-rebase-todo.sha
+x somecommand
+#<- text.git-rebase-todo.command.exec
+# ^^^^^^^^^^^ source.shell

@@ -1,0 +1,87 @@
+%YAML 1.2
+---
+name: Git Rebase Todo
+file_extensions: [git-rebase-todo]
+scope: text.git-rebase-todo
+uuid: 2D60F5C5-6AA1-4AB7-87A6-A7CD469F591E
+
+variables:
+  sha: '[a-f0-9]{4,40}'
+
+contexts:
+  main:
+    - match: ^(p(?:ick)?)\s+({{sha}})\s+(.*)$
+      scope: text.git-rebase-todo.command.pick
+      captures:
+        "1": keyword.other
+        "2": constant.numeric text.git-rebase-todo.sha
+        "3": string.unquoted text.git-rebase-todo.summary
+
+    - match: ^(e(?:dit)?)\s+({{sha}})\s+(.*)$
+      scope: text.git-rebase-todo.command.edit
+      captures:
+        "1": keyword.other
+        "2": constant.numeric text.git-rebase-todo.sha
+        "3": string.unquoted text.git-rebase-todo.summary
+
+    - match: ^(r(?:eword)?)\s+({{sha}})\s+(.*)$
+      scope: text.git-rebase-todo.command.reword
+      captures:
+        "1": keyword.other
+        "2": constant.numeric text.git-rebase-todo.sha
+        "3": string.unquoted text.git-rebase-todo.summary
+
+    - match: ^(f(?:ixup)?)\s+({{sha}})\s+(.*)$
+      scope: text.git-rebase-todo.command.fixup
+      captures:
+        "1": keyword.other
+        "2": constant.numeric text.git-rebase-todo.sha
+        "3": string.unquoted text.git-rebase-todo.summary
+
+    - match: ^(s(?:quash)?)\s+({{sha}})\s+(.*)$
+      scope: text.git-rebase-todo.command.squash
+      captures:
+        "1": keyword.other
+        "2": constant.numeric text.git-rebase-todo.sha
+        "3": string.unquoted text.git-rebase-todo.summary
+
+    - match: ^(d(?:rop)?)\s+({{sha}})\s+(.*)$
+      scope: text.git-rebase-todo.command.drop
+      captures:
+        "1": keyword.other
+        "2": constant.numeric text.git-rebase-todo.sha
+        "3": string.unquoted text.git-rebase-todo.summary
+
+    - match: ^(x|(?:exec))
+      scope: text.git-rebase-todo.command.exec
+      captures:
+        "1": keyword.other
+      push: 'Packages/ShellScript/Shell-Unix-Generic.sublime-syntax'
+      with_prototype:
+        - match: $
+          pop: true
+
+    - include: comments
+
+    # Anything else is invalid
+    - match: ^.*$
+      scope: invalid.illegal
+
+  comments:
+    - match: ^#(\s+[a-z],\s+[a-z]+\s+=.*)$
+      scope: comment.line.number-sign
+      captures:
+        "1": text.git-rebase-todo.command-description
+
+    - match: ^#\sRebase ([a-f0-9]+)(..)([a-f0-9]+) onto ([a-f0-9]+) \((\d+) commands\)
+      scope: comment.line.number-sign text.git-rebase-todo.description
+      captures:
+        "1": constant.numeric text.git-rebase-todo.sha
+        "2": punctuation.operator
+        "3": constant.numeric text.git-rebase-todo.sha
+        "4": constant.numeric text.git-rebase-todo.sha
+        "5": constant.numeric
+
+    # Plain ol' comment
+    - match: (^#.*$)
+      scope: comment.line.number-sign

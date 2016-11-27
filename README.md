@@ -1,6 +1,6 @@
-# Sublime Text Git Commit Message Syntax
+# Commit Message Syntax
 
-Syntax Highlighting for git commit messages in SublimeText.
+Syntax Highlighting for git commit/tag/merge messages (`git commit`, `git tag -a`)
 
 Includes highlighting for:
  - Long Summary Line
@@ -13,11 +13,19 @@ Includes highlighting for:
  - Changes (staged/unstaged/untracked)
  - diff (commit -v)
 
-# Examples
+## Examples
 
 ![Examples](https://github.com/JoshuaWebb/GitCommitSyntax/blob/samples/screenshots/examples.gif?raw=true)
 
 Checkout the `samples` branch for full samples.
+
+# Interactive Rebase Syntax
+
+Syntax Highlighting for interactive rebase (`git rebase -i`)
+
+## Examples
+
+TODO: make samples for this
 
 # Optional/Example Theme Included
 

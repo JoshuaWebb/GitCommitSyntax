@@ -1,4 +1,4 @@
-' SYNTAX TEST "Packages/GitCommitSyntax/GitCommitMessage.sublime-syntax"
+' SYNTAX TEST "GitCommitMessage.sublime-syntax"
 
 The syntax test line ends up being included as the actual first line.
 # Conflicts:
