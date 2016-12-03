@@ -1,0 +1,15 @@
+# SYNTAX TEST "GitCommitMessage.sublime-syntax"
+summary line
+#^^^^^^^^ text.git-commit-msg.summary
+
+# Changes to be committed:
+# ^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign markup.heading
+# new file:   path/to/a
+# modified:   path/to/c
+#^^^^^^^^^^^^^^^^^^^^^^ text.git-commit-msg.committed
+body line
+#^^^^^^^^ text.git-commit-msg.body
+# new file:   path/to/a
+#
+Body line
+#^^^^^^^^ text.git-commit-msg.body
