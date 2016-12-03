@@ -162,8 +162,8 @@ contexts:
       scope: comment.line.number-sign
       captures:
         "1": keyword.other.renamed
-        "3": punctuation.operator
         "2": markup.changed
+        "3": punctuation.operator
         "4": markup.inserted
     - match: ^#\s+(deleted:)\s+(.*)
       scope: comment.line.number-sign
