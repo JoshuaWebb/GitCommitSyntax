@@ -1,7 +1,7 @@
 # [PackageDev] target_format: plist, ext: tmLanguage
 ---
 name: Git Commit Message (tmLanguage)
-fileTypes: [COMMIT_EDITMSG, MERGE_MSG]
+fileTypes: [COMMIT_EDITMSG, MERGE_MSG, TAG_EDITMSG]
 scopeName: text.git-commit-msg
 uuid: 69AB7563-44F7-446C-B3A9-7CFEC8D50B1C
 
@@ -16,7 +16,7 @@ repository:
     - match: (^\s*$)
     - begin: (?:.{1,50})(.{0,22})(.*)
       beginCaptures:
-        "0": { name: summary }
+        "0": { name: text.git-commit-msg.summary }
         "1": { name: invalid.illegal.slightly-too-long }
         "2": { name: invalid.illegal.too-long }
       end: (?=ThisNeverEnds)1234567890123
@@ -54,7 +54,7 @@ repository:
         "2": { name: keyword.other.status.behind }
         "3": { name: string.unquoted.branch-name.remote }
         "4": { name: constant.numeric }
-    - match: ^#\sYour branch is (up-to-date) with '(.*)'
+    - match: ^#\sYour branch is (up-to-date) with '(.*)'\.
       name: comment.line.number-sign
       captures:
         "1": { name: keyword.other.status.up-to-date }
@@ -64,7 +64,7 @@ repository:
       captures:
         "1": { name: string.unquoted.branch-name.remote }
         "2": { name: keyword.other.status.diverged }
-    - match: '^# and have (\d+) and (\d+) different commits each, respectively.'
+    - match: '^# and have (\d+) and (\d+) different commits each, respectively\.'
       name: comment.line.number-sign
       captures:
         "1": { name: constant.numeric }
@@ -84,34 +84,48 @@ repository:
         "2": { name: string.unquoted.date }
 
     - begin: ^#\s(Changes to be committed:)
-      name: comment.line.number-sign
+      name: text.git-commit-msg.committed comment.line.number-sign
       beginCaptures:
         "1": { name: markup.heading }
       end: ^#\s*$
       patterns:
         - match: ^#\s+(new file:)\s+(.*)
           captures:
-            "1": { name: markup.inserted }
+            "1": { name: keyword.other.new-file }
             "2": { name: markup.inserted }
         - match: ^#\s+(modified:)\s+(.*)
           captures:
-            "1": { name: markup.inserted }
+            "1": { name: keyword.other.modified }
             "2": { name: markup.changed }
+        - match: ^#\s+(renamed:)\s+(.*?)(?:\s(->)\s)(.*)
+          captures:
+            "1": { name: keyword.other.renamed }
+            "2": { name: markup.changed }
+            "3": { name: punctuation.operator }
+            "4": { name: markup.inserted }
         - match: ^#\s+(deleted:)\s+(.*)
           captures:
-            "1": { name: markup.inserted }
+            "1": { name: keyword.other.deleted }
             "2": { name: markup.deleted }
 
     - begin: ^#\s(Changes not staged for commit:)
-      name: comment.line.number-sign
+      name: text.git-commit-msg.unstaged comment.line.number-sign
       beginCaptures:
         "1": { name: markup.heading }
       end: ^#\s*$
       patterns:
-        - match: ^#\s+(new file:|modified:|deleted:)\s+(.*)
+        - match: ^#\s+(new file:)\s+(.*)
           captures:
-            "1": { name: markup.changed }
+            "1": { name: keyword.other.new-file }
+            "2": { name: markup.inserted }
+        - match: ^#\s+(modified:)\s+(.*)
+          captures:
+            "1": { name: keyword.other.modified }
             "2": { name: markup.changed }
+        - match: ^#\s+(deleted:)\s+(.*)
+          captures:
+            "1": { name: keyword.other.deleted }
+            "2": { name: markup.deleted }
 
     - begin: ^# (Untracked files:)
       name: comment.line.number-sign
@@ -121,7 +135,26 @@ repository:
       patterns:
         - match: ^#\s+(\S.*)$
           captures:
-            "1": { name: markup.untracked }
+            "1": { name: markup.list.unnumbered.untracked }
+
+    - begin: ^# (Conflicts:)
+      name: comment.line.number-sign
+      beginCaptures:
+        "1": { name: markup.heading }
+      end: ^#\s*$
+      patterns:
+        - match: ^#\s+(\S.*)$
+          captures:
+            "1": { name: markup.list.unnumbered.resolved-conflict }
+
+    - begin: '^# If this is not correct, please remove the file'
+      name: comment.line.number-sign
+      end: ^#\s+and try again\.$
+      patterns:
+        - match: ^#\s+(\S.*)$
+          name: comment.line.number-sign
+          captures:
+            "1": { name: string.unquoted.merge-head }
 
     # diff cut line
     - begin: ^#\s+------------------------ >8 ------------------------
