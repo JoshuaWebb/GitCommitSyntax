@@ -1,0 +1,33 @@
+# SYNTAX TEST "GitRebaseTodo.tmLanguage"
+
+# Rebase 9a747c8..e9f5623 onto 9a747c8 (7 commands)
+#        ^^^^^^^ text.git-rebase-todo.sha
+#               ^^ punctuation.operator
+#                 ^^^^^^^ text.git-rebase-todo.sha
+#                              ^^^^^^^ text.git-rebase-todo.sha
+#                                       ^ constant.numeric
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.description
+
+# Commands:
+# p, pick = use commit
+# ^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.command-description
+# r, reword = use commit, but edit the commit message
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.command-description
+# e, edit = use commit, but stop for amending
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.command-description
+# s, squash = use commit, but meld into previous commit
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.command-description
+# f, fixup = like "squash", but discard this commit's log message
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.command-description
+# x, exec = run command (the rest of the line) using shell
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.command-description
+# d, drop = remove commit
+# ^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.command-description
+#
+# These lines can be re-ordered; they are executed from top to bottom.
+#
+# If you remove a line here THAT COMMIT WILL BE LOST.
+#
+# However, if you remove everything, the rebase will be aborted.
+#
+# Note that empty commits are commented out

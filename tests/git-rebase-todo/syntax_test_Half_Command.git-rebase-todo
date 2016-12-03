@@ -1,0 +1,23 @@
+# SYNTAX TEST "GitRebaseTodo.tmLanguage"
+
+pi affc119 Can't use half a command
+#<- invalid.illegal
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.illegal
+re bcd26b4 Can't use half a command
+#<- invalid.illegal
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.illegal
+ed 794e871 Can't use half a command
+#<- invalid.illegal
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.illegal
+dr e65de95 Can't use half a command
+#<- invalid.illegal
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.illegal
+sq b0539ee Can't use half a command
+#<- invalid.illegal
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.illegal
+fi e9f5623 Can't use half a command
+#<- invalid.illegal
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.illegal
+ex echo "Can't use half a command"
+#<- invalid.illegal
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.illegal

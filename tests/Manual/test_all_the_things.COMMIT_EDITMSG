@@ -1,6 +1,17 @@
 The subject/summary line has multiple thresholds. [this one] which is BM and [this one] which is extreme BM
  ==== This line should be blank, so it is yelling at you === 
 This is a body line which is too long. The end of it yells at you encouraging you to wrap it yourself.
+
+# Conflicts:
+#	path/to/c
+#	path to d
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
 # Please enter the commit message for your changes. Lines starting
 # with '#' will be ignored, and an empty message aborts the commit.
 #
@@ -21,7 +32,7 @@ This is a body line which is too long. The end of it yells at you encouraging yo
 #
 # Your branch is behind 'origin/master' by 34 commits, and can be fast-forwarded.
 #
-# Your branch is up-to-date with 'origin/master'
+# Your branch is up-to-date with 'origin/master'.
 #
 # Your branch and 'origin/master' have diverged,
 # and have 1 and 2 different commits each, respectively.
@@ -34,6 +45,8 @@ This is a body line which is too long. The end of it yells at you encouraging yo
 #	new file:   path to b
 #	modified:   path/to/c
 #	modified:   path to d
+#	renamed:    path/to/o -> path/to/p
+#	renamed:    path to q -> path to r
 #	deleted:    path/to/e
 #	deleted:    path to f
 #
@@ -52,10 +65,10 @@ This is a body line which is too long. The end of it yells at you encouraging yo
 # ------------------------ >8 ------------------------
 # Do not touch the line above.
 # Everything below will be removed.
-diff --git a/GitCommitMessage.sublime-syntax b/GitCommitMessage.sublime-syntax
+diff --git a/GitCommitMessage.tmLanguage b/GitCommitMessage.sublime-syntax
 index 038f76c..346bbb9 100644
---- a/GitCommitMessage.sublime-syntax
-+++ b/GitCommitMessage.sublime-syntax
+--- a/GitCommitMessage.tmLanguage
++++ b/GitCommitMessage.tmLanguage
 @@ -11,7 +11,7 @@ contexts:
    main:
      # blank lines at the start are ignored.
@@ -79,7 +92,7 @@ index 038f76c..346bbb9 100644
      - match: (^#.*$)
        scope: comment.line.number-sign
 +    - match: diff\ \-\-git
-+      push: "Packages/Diff/Diff.sublime-syntax"
++      push: "Packages/Diff/Diff.tmLanguage"
       # TODO: the rest of the guts
  
    # diff shenanigans

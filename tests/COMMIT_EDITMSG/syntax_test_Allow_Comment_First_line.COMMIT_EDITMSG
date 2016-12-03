@@ -1,0 +1,4 @@
+# SYNTAX TEST "GitCommitMessage.tmLanguage"
+This should be counted as the real first line
+# <- text.git-commit-msg.summary
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-commit-msg.summary
