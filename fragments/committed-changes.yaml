@@ -1,0 +1,5 @@
+- match: ^#\s(Changes to be committed:)
+  scope: comment.line.number-sign
+  captures:
+    "1": markup.heading
+  set: $set

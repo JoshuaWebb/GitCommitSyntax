@@ -1,0 +1,5 @@
+- match: '^(?!#)\s*\S+.*'
+  scope: invalid.illegal.should-be-blank
+  set: $set
+- match: '{{blank_line}}'
+  set: $set

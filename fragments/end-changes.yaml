@@ -1,0 +1,3 @@
+- match: '{{empty_comment}}'
+  scope: comment.line.number-sign
+  set: $set

@@ -1,0 +1,5 @@
+- match: ^#\s(Changes not staged for commit:)
+  scope: comment.line.number-sign
+  captures:
+    "1": markup.heading
+  set: $set

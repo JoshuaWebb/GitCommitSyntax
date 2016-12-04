@@ -16,80 +16,45 @@ contexts:
   main:
     # blank lines before the first line are ignored.
     - match: '{{blank_line}}'
-    - match: ^#\s(Changes to be committed:)
-      scope: comment.line.number-sign
-      captures:
-        "1": markup.heading
-      set: committed-changes-main
-    - match: ^#\s(Changes not staged for commit:)
-      scope: comment.line.number-sign
-      captures:
-        "1": markup.heading
-      set: unstaged-changes-main
-    - match: ^(?!#)(?:.{1,50})(.{0,22})(.*)
-      captures:
-        "0": string.unquoted text.git-commit-msg.summary
-        "1": invalid.illegal.slightly-too-long
-        "2": invalid.illegal.too-long
-      set: second-line
+    - __committed-changes.yaml__: committed-changes-main
+    - __unstaged-changes.yaml__: unstaged-changes-main
+    - __first-line.yaml__: second-line
     - include: plain-comment
 
   committed-changes-main:
     - meta_content_scope: text.git-commit-msg.committed
     - include: changes-main
     # if we get the first line in the middle of the changes
-    - match: ^(?!#)(?:.{1,50})(.{0,22})(.*)
-      captures:
-        "0": string.unquoted text.git-commit-msg.summary
-        "1": invalid.illegal.slightly-too-long
-        "2": invalid.illegal.too-long
-      set: committed-changes-after-first
+    - __first-line.yaml__: committed-changes-after-first
 
   unstaged-changes-main:
     - meta_content_scope: text.git-commit-msg.unstaged
     - include: changes-main
     # if we get the first line in the middle of the changes
-    - match: ^(?!#)(?:.{1,50})(.{0,22})(.*)
-      captures:
-        "0": string.unquoted text.git-commit-msg.summary
-        "1": invalid.illegal.slightly-too-long
-        "2": invalid.illegal.too-long
-      set: unstaged-changes-after-first
+    - __first-line.yaml__: unstaged-changes-after-first
 
   changes-main:
     # blank lines before the first line are ignored.
     - match: '{{blank_line}}'
     - include: changes
     # end of changes (we haven't had first line yet)
-    - match: '{{empty_comment}}'
-      scope: comment.line.number-sign
-      set: main
+    - __end-changes.yaml__: main
     - include: plain-comment
 
   committed-changes-after-first:
     - meta_content_scope: text.git-commit-msg.committed
-    - match: '^(?!#)\s*\S+.*'
-      scope: invalid.illegal.should-be-blank
-      set: committed-changes-body
-    - match: '{{blank_line}}'
-      set: committed-changes-body
+    - __second-line.yaml__: committed-changes-body
     - include: changes-after-first
 
   unstaged-changes-after-first:
     - meta_content_scope: text.git-commit-msg.unstaged
-    - match: '^(?!#)\s*\S+.*'
-      scope: invalid.illegal.should-be-blank
-      set: unstaged-changes-body
-    - match: '{{blank_line}}'
-      set: unstaged-changes-body
+    - __second-line.yaml__: unstaged-changes-body
     - include: changes-after-first
 
   changes-after-first:
     - include: changes
     # changes ended, we've had the first line, but we're waiting on the second line
-    - match: '{{empty_comment}}'
-      scope: comment.line.number-sign
-      set: second-line
+    - __end-changes.yaml__: second-line
     - include: plain-comment
 
   committed-changes-body:
@@ -103,40 +68,18 @@ contexts:
   changes-body:
     - include: changes
     # changes ended, and we've had the first and second line
-    - match: '{{empty_comment}}'
-      scope: comment.line.number-sign
-      set: body
+    - __end-changes.yaml__: body
     - include: body
 
   second-line:
-    - match: ^#\s(Changes to be committed:)
-      scope: comment.line.number-sign
-      captures:
-        "1": markup.heading
-      set: committed-changes-after-first
-    - match: ^#\s(Changes not staged for commit:)
-      scope: comment.line.number-sign
-      captures:
-        "1": markup.heading
-      set: unstaged-changes-after-first
-    - match: '^(?!#)\s*\S+.*'
-      scope: invalid.illegal.should-be-blank
-      set: body
-    - match: '{{blank_line}}'
-      set: body
+    - __committed-changes.yaml__: committed-changes-after-first
+    - __unstaged-changes.yaml__: unstaged-changes-after-first
+    - __second-line.yaml__: body
     - include: plain-comment
 
   body:
-    - match: ^#\s(Changes to be committed:)
-      scope: comment.line.number-sign
-      captures:
-        "1": markup.heading
-      set: committed-changes-body
-    - match: ^#\s(Changes not staged for commit:)
-      scope: comment.line.number-sign
-      captures:
-        "1": markup.heading
-      set: unstaged-changes-body
+    - __committed-changes.yaml__: committed-changes-body
+    - __unstaged-changes.yaml__: unstaged-changes-body
     - match: ^(?!#)(?:.{1,72})(.*)
       scope: text.git-commit-msg.body
       captures:
