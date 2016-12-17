@@ -1,0 +1,11 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+---
+name: Hunk Edit
+fileTypes: [addp-hunk-edit.diff]
+scopeName: text.git
+uuid: 5EBC992A-8877-49E4-8B45-BBEDF07D0D33
+
+patterns:
+  - include: source.diff
+  - match: ^#.*$
+    name: comment.line.number-sign
