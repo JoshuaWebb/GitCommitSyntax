@@ -1,18 +1,17 @@
-# Sublime Text Git Commit Message Syntax
+# Commit Message Syntax (TextMate Versions)
 
-Syntax Highlighting for git commit messages in SublimeText.
+This branch contains a port of all the languages
 
-Includes highlighting for:
- - Long Summary Line
- - Text on the second line
- - Comments
- - Long lines
- - Author/Date
- - Branches
- - Status
- - Changes (staged/unstaged/untracked)
- - diff (commit -v)
+## Developing
 
-# Optional/Example Theme Included
+Run `./sync.sh` to update the shared files (tests and theme).
 
-Theme based on [Material Theme](https://github.com/equinusocio/material-theme) by Mattia Astorino
+Generate the tmLanguage from the YAML-tmLanguage via
+
+	Ctrl+Shift+P -> PackageDev: Convert (YAML, JSON, PList) to...
+
+Then run tests on the generated language with
+	
+	Ctrl+Shift+P -> Build With: Syntax Tests
+
+`F7` thereafter
