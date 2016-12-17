@@ -1,0 +1,90 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+---
+name: Git Rebase Todo
+fileTypes: [git-rebase-todo]
+scopeName: text.git-rebase-todo
+uuid: 887E9394-E31C-4DC5-B9BE-8BA9F591C6E1
+
+# sha: [a-f0-9]{4,40}
+
+patterns:
+  - include: '#main'
+
+repository:
+  main:
+    patterns:
+    - match: ^(p(?:ick)?)\s+([a-f0-9]{4,40})\s+(.*)$
+      name: text.git-rebase-todo.command.pick
+      captures:
+        "1": { name: keyword.other }
+        "2": { name: constant.numeric text.git-rebase-todo.sha }
+        "3": { name: string.unquoted text.git-rebase-todo.summary }
+
+    - match: ^(e(?:dit)?)\s+([a-f0-9]{4,40})\s+(.*)$
+      name: text.git-rebase-todo.command.edit
+      captures:
+        "1": { name: keyword.other }
+        "2": { name: constant.numeric text.git-rebase-todo.sha }
+        "3": { name: string.unquoted text.git-rebase-todo.summary }
+
+    - match: ^(r(?:eword)?)\s+([a-f0-9]{4,40})\s+(.*)$
+      name: text.git-rebase-todo.command.reword
+      captures:
+        "1": { name: keyword.other }
+        "2": { name: constant.numeric text.git-rebase-todo.sha }
+        "3": { name: string.unquoted text.git-rebase-todo.summary }
+
+    - match: ^(f(?:ixup)?)\s+([a-f0-9]{4,40})\s+(.*)$
+      name: text.git-rebase-todo.command.fixup
+      captures:
+        "1": { name: keyword.other }
+        "2": { name: constant.numeric text.git-rebase-todo.sha }
+        "3": { name: string.unquoted text.git-rebase-todo.summary }
+
+    - match: ^(s(?:quash)?)\s+([a-f0-9]{4,40})\s+(.*)$
+      name: text.git-rebase-todo.command.squash
+      captures:
+        "1": { name: keyword.other }
+        "2": { name: constant.numeric text.git-rebase-todo.sha }
+        "3": { name: string.unquoted text.git-rebase-todo.summary }
+
+    - match: ^(d(?:rop)?)\s+([a-f0-9]{4,40})\s+(.*)$
+      name: text.git-rebase-todo.command.drop
+      captures:
+        "1": { name: keyword.other }
+        "2": { name: constant.numeric text.git-rebase-todo.sha }
+        "3": { name: string.unquoted text.git-rebase-todo.summary }
+
+    - begin: ^(x|(?:exec))
+      contentName: source.shell
+      beginCaptures:
+        "1": { name: text.git-rebase-todo.command.exec keyword.other }
+      end: $
+      patterns:
+        - include: 'source.shell'
+
+    - include: '#comments'
+
+    # Anything else is invalid
+    - match: ^.*$
+      name: invalid.illegal
+
+  comments:
+    patterns:
+    - match: ^#(\s+[^,]+,\s+[a-z]+\s+=.*)$
+      name: comment.line.number-sign
+      captures:
+        "1": { name: text.git-rebase-todo.command-description }
+
+    - match: ^#\sRebase ([a-f0-9]+)(..)([a-f0-9]+) onto ([a-f0-9]+) \((\d+) commands\)
+      name: comment.line.number-sign text.git-rebase-todo.description
+      captures:
+        "1": { name: constant.numeric text.git-rebase-todo.sha }
+        "2": { name: punctuation.operator }
+        "3": { name: constant.numeric text.git-rebase-todo.sha }
+        "4": { name: constant.numeric text.git-rebase-todo.sha }
+        "5": { name: constant.numeric }
+
+    # Plain ol' comment
+    - match: ^#.*$
+      name: comment.line.number-sign
