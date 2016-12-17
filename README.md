@@ -13,6 +13,8 @@ Includes highlighting for:
  - Changes (staged/unstaged/untracked)
  - diff (commit -v)
 
+*TextMate support is in development on the tmLanguage branch*
+
 ## Examples
 
 ![Examples](https://github.com/JoshuaWebb/GitCommitSyntax/blob/samples/screenshots/COMMIT_EDITMSG/examples.gif?raw=true)
