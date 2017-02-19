@@ -207,4 +207,15 @@ settings:
     foreground: '#e3e2d5'
     background: '#545962'
 
+# --------- Mailmap ------------
+- name: (Proper) Name
+  scope: string.unquoted.name proper
+  settings:
+    foreground: '#C792EA'
+
+- name: (Proper) Email
+  scope: string.unquoted.email proper
+  settings:
+    foreground: '#35e5ad'
+
 uuid: A683AC57-2830-4F54-A918-20F369CB567E

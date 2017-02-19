@@ -1,0 +1,61 @@
+# SYNTAX TEST "GitMailmap.sublime-syntax"
+
+Proper Name <proper@email.com> Commit Name <commit@email># Comment
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git
+#^^^^^^^^^^ string.unquoted.name proper
+#            ^^^^^^^^^^^^^^^^ string.unquoted.email proper
+#                              ^^^^^^^^^^^ string.unquoted.name commit
+#                                           ^^^^^^^^^^^^ string.unquoted.email commit
+#                                                        ^^^^^^^^^ comment.line.number-sign
+
+Proper Name <proper@email.com> <commit@email># Comment
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git
+#^^^^^^^^^^ string.unquoted.name proper
+#            ^^^^^^^^^^^^^^^^ string.unquoted.email proper
+#                               ^^^^^^^^^^^^ string.unquoted.email commit
+#                                            ^^^^^^^^^ comment.line.number-sign
+
+Proper Name <commit@email># Comment
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git
+#^^^^^^^^^^
+#            ^^^^^^^^^^^^ string.unquoted.email commit
+#                         ^^^^^^^^^ comment.line.number-sign
+
+<proper@email.com> <commit@email># Comment
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git
+#^^^^^^^^^^^^^^^^ string.unquoted.email proper
+#                   ^^^^^^^^^^^^ string.unquoted.email commit
+#                                ^^^^^^^^^ comment.line.number-sign
+
+Proper Name <proper@email.com> Commit Name <commit@email> # Comment
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git
+#^^^^^^^^^^ string.unquoted.name proper
+#            ^^^^^^^^^^^^^^^^ string.unquoted.email proper
+#                              ^^^^^^^^^^^ string.unquoted.name commit
+#                                           ^^^^^^^^^^^^ string.unquoted.email commit
+#                                                        ^^^^^^^^^ comment.line.number-sign
+
+Proper Name <proper@email.com> <commit@email> # Comment
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git
+#^^^^^^^^^^ string.unquoted.name proper
+#            ^^^^^^^^^^^^^^^^ string.unquoted.email proper
+#                               ^^^^^^^^^^^^ string.unquoted.email commit
+#                                             ^^^^^^^^^ comment.line.number-sign
+
+Proper Name <commit@email> # Comment
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git
+#^^^^^^^^^^
+#            ^^^^^^^^^^^^ string.unquoted.email commit
+#                          ^^^^^^^^^ comment.line.number-sign
+
+<proper@email.com> <commit@email> # Comment
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git
+#^^^^^^^^^^^^^^^^ string.unquoted.email proper
+#                   ^^^^^^^^^^^^ string.unquoted.email commit
+#                                 ^^^^^^^^^ comment.line.number-sign
+
+#Comment
+#^^^^^^^ comment.line.number-sign
+
+# Comment
+#^^^^^^^^ comment.line.number-sign

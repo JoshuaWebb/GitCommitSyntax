@@ -1,0 +1,27 @@
+# SYNTAX TEST "GitMailmap.sublime-syntax"
+
+Proper Name <proper@email.com> Commit Name <commit@email>
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git
+#^^^^^^^^^^ string.unquoted.name proper
+#            ^^^^^^^^^^^^^^^^ string.unquoted.email proper
+#                              ^^^^^^^^^^^ string.unquoted.name commit
+#                                           ^^^^^^^^^^^^ string.unquoted.email commit
+
+Proper Name <proper@email.com> <commit@email>
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git
+#^^^^^^^^^^ string.unquoted.name proper
+#            ^^^^^^^^^^^^^^^^ string.unquoted.email proper
+#                               ^^^^^^^^^^^^ string.unquoted.email commit
+
+Proper Name <commit@email>
+#^^^^^^^^^^^^^^^^^^^^^^^^^ text.git
+#^^^^^^^^^^
+#            ^^^^^^^^^^^^ string.unquoted.email commit
+
+<proper@email.com> <commit@email>
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git
+#^^^^^^^^^^^^^^^^ string.unquoted.email proper
+#                   ^^^^^^^^^^^^ string.unquoted.email commit
+
+Not a valid mailmap
+#^^^^^^^^^^^^^^^^^^ invalid

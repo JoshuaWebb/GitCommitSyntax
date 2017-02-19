@@ -1,0 +1,35 @@
+%YAML 1.2
+---
+name: Mailmap
+file_extensions: [mailmap, .mailmap]
+scope: text.git
+uuid: 10690E59-0ACF-43CE-97FA-5E741FDE48EC
+
+variables:
+  email: '<([^>]+)>'
+
+contexts:
+  main:
+    - match: (.*?)\s+{{email}}\s+(.*?)\s+{{email}}
+      captures:
+        "1": string.unquoted.name proper
+        "2": string.unquoted.email proper
+        "3": string.unquoted.name commit
+        "4": string.unquoted.email commit
+    - match: '{{email}}\s+{{email}}'
+      captures:
+        "1": string.unquoted.email proper
+        "2": string.unquoted.email commit
+    - match: (.*?)\s+{{email}}\s+{{email}}
+      captures:
+        "1": string.unquoted.name proper
+        "2": string.unquoted.email proper
+        "3": string.unquoted.email commit
+    - match: (.*?)\s+{{email}}
+      captures:
+        "1": string.unquoted.name proper
+        "2": string.unquoted.email commit
+    - match: '\s*#.*$'
+      scope: comment.line.number-sign
+    - match: .*
+      scope: invalid
