@@ -1,0 +1,8 @@
+# SYNTAX TEST "GitRebaseTodo.sublime-syntax"
+p 83d0801 Some commit message
+
+# Rebase 83d0801 onto c8cbee4 (1 command)
+#        ^^^^^^^
+#                     ^^^^^^^ text.git-rebase-todo.sha
+#                              ^ constant.numeric
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.description
