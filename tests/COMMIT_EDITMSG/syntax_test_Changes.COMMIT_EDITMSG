@@ -31,6 +31,18 @@ The syntax test line ends up being included as the actual first line.
 '                       ^^ punctuation.operator
 '                          ^^^^^^^^^ markup.inserted
 '^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-commit-msg.committed comment.line.number-sign
+# copied:    path/to/s -> path/to/t
+' ^^^^^^^ keyword.other.copied
+'            ^^^^^^^^^ markup.changed
+'                      ^^ punctuation.operator
+'                         ^^^^^^^^^ markup.inserted
+'^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-commit-msg.committed comment.line.number-sign
+# copied:    path to u -> path to v
+' ^^^^^^^ keyword.other.copied
+'            ^^^^^^^^^ markup.changed
+'                      ^^ punctuation.operator
+'                         ^^^^^^^^^ markup.inserted
+'^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-commit-msg.committed comment.line.number-sign
 # deleted:    path/to/e
 ' ^^^^^^^^ keyword.other.deleted
 '             ^^^^^^^^^ markup.deleted
