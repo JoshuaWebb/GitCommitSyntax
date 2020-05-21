@@ -7,6 +7,7 @@ uuid: 2D60F5C5-6AA1-4AB7-87A6-A7CD469F591E
 
 variables:
   sha: '[a-f0-9]{4,40}'
+  label: '[-._\w]+'
 
 contexts:
   main:
@@ -61,6 +62,27 @@ contexts:
         - match: $
           pop: true
 
+    - match: ^(l(?:abel)?)\s+({{label}})$
+      scope: text.git-rebase-todo.command.label
+      captures:
+        "1": keyword.other
+        "2": string.unquoted text.git-rebase-todo.label
+
+    - match: ^(t|(?:reset))\s+({{label}})$
+      scope: text.git-rebase-todo.command.reset
+      captures:
+        "1": keyword.other
+        "2": string.unquoted text.git-rebase-todo.label
+
+    - match: ^(m(?:erge)?)(?:\s+(-[C|c])\s+({{sha}}))?\s+({{label}})(\s+#.*)?$
+      scope: text.git-rebase-todo.command.merge
+      captures:
+        "1": keyword.other
+        "2": punctuation.operator
+        "3": string.unquoted text.git-rebase-todo.sha
+        "4": string.unquoted text.git-rebase-todo.label
+        "5": comment.line.number-sign
+
     - include: comments
 
     # Anything else is invalid
@@ -68,7 +90,17 @@ contexts:
       scope: invalid.illegal
 
   comments:
-    - match: ^#(\s+[a-z],\s+[a-z]+\s+=.*)$
+    - match: ^#(\s+[a-z],\s+[^=]+\s+=.*)$
+      scope: comment.line.number-sign
+      captures:
+        "1": text.git-rebase-todo.command-description
+
+    - match: ^#(\s+m,\s+merge\s+.*)$
+      scope: comment.line.number-sign
+      captures:
+        "1": text.git-rebase-todo.command-description
+
+    - match: ^#\s+\.\s+(.*)$
       scope: comment.line.number-sign
       captures:
         "1": text.git-rebase-todo.command-description

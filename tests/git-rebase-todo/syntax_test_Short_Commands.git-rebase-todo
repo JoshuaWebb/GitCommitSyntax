@@ -26,3 +26,11 @@ d e65de95 Some commit message
 x somecommand
 #<- text.git-rebase-todo.command.exec
 # ^^^^^^^^^^^ source.shell
+l somelabel
+#<- text.git-rebase-todo.command.label
+#^^^^^^^^^^ text.git-rebase-todo.command.label
+# ^^^^^^^^^ string.unquoted text.git-rebase-todo.label
+t somelabel
+#<- text.git-rebase-todo.command.reset
+#^^^^^^^^^^ text.git-rebase-todo.command.reset
+# ^^^^^^^^^ string.unquoted text.git-rebase-todo.label

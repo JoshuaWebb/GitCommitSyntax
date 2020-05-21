@@ -27,3 +27,18 @@ exec somecommand
 #<- text.git-rebase-todo.command.exec
 #^^^ text.git-rebase-todo.command.exec
 #    ^^^^^^^^^^^ source.shell
+label some-label
+#<- text.git-rebase-todo.command.label
+#^^^^^^^^^^^^^^^ text.git-rebase-todo.command.label
+#     ^^^^^^^^^^ string.unquoted text.git-rebase-todo.label
+merge -C a1b2c3 refactor-button # Merge 'refactor-button'
+#<- text.git-rebase-todo.command.merge
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.command.merge
+#     ^^ punctuation.operator
+#        ^^^^^^ string.unquoted text.git-rebase-todo.sha
+#               ^^^^^^^^^^^^^^^ string.unquoted text.git-rebase-todo.label
+#                               ^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+reset some-label
+#<- text.git-rebase-todo.command.reset
+#^^^^^^^^^^^^^^^ text.git-rebase-todo.command.reset
+#     ^^^^^^^^^^ string.unquoted text.git-rebase-todo.label

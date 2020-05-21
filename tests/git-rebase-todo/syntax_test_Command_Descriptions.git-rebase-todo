@@ -9,22 +9,38 @@
 # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.description
 
 # Commands:
-# p, pick = use commit
-# ^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.command-description
-# r, reword = use commit, but edit the commit message
-# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.command-description
-# e, edit = use commit, but stop for amending
-# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.command-description
-# s, squash = use commit, but meld into previous commit
-# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.command-description
-# f, fixup = like "squash", but discard this commit's log message
-# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.command-description
-# x, exec = run command (the rest of the line) using shell
-# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.command-description
-# d, drop = remove commit
-# ^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.command-description
+# p, pick <commit> = use commit
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.command-description
+# r, reword <commit> = use commit, but edit the commit message
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.command-description
+# e, edit <commit> = use commit, but stop for amending
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.command-description
+# s, squash <commit> = use commit, but meld into previous commit
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.command-description
+# f, fixup <commit> = like "squash", but discard this commit's log message
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.command-description
+# x, exec <command> = run command (the rest of the line) using shell
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.command-description
+# b, break = stop here (continue rebase later with 'git rebase --continue')
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.command-description
+# d, drop <commit> = remove commit
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.command-description
+# l, label <label> = label current HEAD with a name
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.command-description
+# t, reset <label> = reset HEAD to a label
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.command-description
+# m, merge [-C <commit> | -c <commit>] <label> [# <oneline>]
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.command-description
+# .       create a merge commit using the original merge commit's
+#         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.command-description
+# .       message (or the oneline, if no original merge commit was
+#         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.command-description
+# .       specified). Use -c <commit> to reword the commit message.
+#         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.git-rebase-todo.command-description
 #
+#<- comment.line.number-sign
 # These lines can be re-ordered; they are executed from top to bottom.
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
 #
 # If you remove a line here THAT COMMIT WILL BE LOST.
 #

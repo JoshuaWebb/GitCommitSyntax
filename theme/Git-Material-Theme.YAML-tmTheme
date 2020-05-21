@@ -166,6 +166,11 @@ settings:
   settings:
     foreground: '#ffcc00'
 
+- name: Label
+  scope: text.git-rebase-todo.label
+  settings:
+    foreground: '#ffaa00'
+
 - name: Command Description
   scope:  text.git-rebase-todo.command-description
   settings:
@@ -206,6 +211,21 @@ settings:
   settings:
     foreground: '#e3e2d5'
     background: '#545962'
+
+- name: Rebase Command (Label)
+  scope: text.git-rebase-todo.command.label keyword.other, text.git-rebase-todo.command.label text.git-rebase-todo.summary
+  settings:
+    foreground: '#ff8fba'
+
+- name: Rebase Command (Reset)
+  scope: text.git-rebase-todo.command.reset keyword.other, text.git-rebase-todo.command.reset text.git-rebase-todo.summary
+  settings:
+    foreground: '#ff8fba'
+
+- name: Rebase Command (Merge)
+  scope: text.git-rebase-todo.command.merge keyword.other, text.git-rebase-todo.command.merge text.git-rebase-todo.summary
+  settings:
+    foreground: '#ff6f9a'
 
 # --------- Mailmap ------------
 - name: (Proper) Name

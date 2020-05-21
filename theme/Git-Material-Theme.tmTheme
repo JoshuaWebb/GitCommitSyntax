@@ -352,6 +352,17 @@
 		</dict>
 		<dict>
 			<key>name</key>
+			<string>Label</string>
+			<key>scope</key>
+			<string>text.git-rebase-todo.label</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#ffaa00</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
 			<string>Command Description</string>
 			<key>scope</key>
 			<string>text.git-rebase-todo.command-description</string>
@@ -438,6 +449,39 @@
 				<string>#545962</string>
 				<key>foreground</key>
 				<string>#e3e2d5</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Rebase Command (Label)</string>
+			<key>scope</key>
+			<string>text.git-rebase-todo.command.label keyword.other, text.git-rebase-todo.command.label text.git-rebase-todo.summary</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#ff8fba</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Rebase Command (Reset)</string>
+			<key>scope</key>
+			<string>text.git-rebase-todo.command.reset keyword.other, text.git-rebase-todo.command.reset text.git-rebase-todo.summary</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#ff8fba</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Rebase Command (Merge)</string>
+			<key>scope</key>
+			<string>text.git-rebase-todo.command.merge keyword.other, text.git-rebase-todo.command.merge text.git-rebase-todo.summary</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#ff6f9a</string>
 			</dict>
 		</dict>
 		<dict>
