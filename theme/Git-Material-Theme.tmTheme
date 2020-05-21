@@ -165,7 +165,7 @@
 			<key>name</key>
 			<string>Committed</string>
 			<key>scope</key>
-			<string> text.git-commit-msg.committed keyword.other.new-file, text.git-commit-msg.committed keyword.other.modified, text.git-commit-msg.committed keyword.other.renamed, text.git-commit-msg.committed keyword.other.deleted </string>
+			<string> text.git-commit-msg.committed keyword.other.new-file, text.git-commit-msg.committed keyword.other.modified, text.git-commit-msg.committed keyword.other.renamed, text.git-commit-msg.committed keyword.other.copied, text.git-commit-msg.committed keyword.other.deleted </string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>

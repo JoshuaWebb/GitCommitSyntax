@@ -80,6 +80,7 @@ settings:
     text.git-commit-msg.committed keyword.other.new-file,
     text.git-commit-msg.committed keyword.other.modified,
     text.git-commit-msg.committed keyword.other.renamed,
+    text.git-commit-msg.committed keyword.other.copied,
     text.git-commit-msg.committed keyword.other.deleted
   '
   settings:
